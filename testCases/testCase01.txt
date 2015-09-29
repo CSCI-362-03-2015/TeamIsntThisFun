@@ -1,4 +1,4 @@
-1b
+1a
 The method human_bytes should format file size in a human readable way as a string (e.g. "1.9 GB").
 beets/ui/__init__
 human_bytes( size ) # int size 
