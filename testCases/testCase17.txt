@@ -1,6 +1,6 @@
 4b
 The method should take soundcheck files as input and output a decoded full scale value.
-beets/ui/__init__
+beets/mediafile
 _sc_decode( soundcheck ) # ? [NEEDED find out what soundcheck type is]
  # ? [NEEDED find input type]
  # ? [NEEDED find output type]
