@@ -5,9 +5,9 @@ human_bytes( size ) // int size
 -1 // int
 InputError // String size
 
-//1. test number or ID
-//2. requirement being tested
-//3. component being tested
-//4. method being tested
-//5. test input(s) including command-line argument(s)
-//6. expected outcome(s)
+#1. test number or ID
+#2. requirement being tested
+#3. component being tested
+#4. method being tested
+#5. test input(s) including command-line argument(s)
+#6. expected outcome(s)
