@@ -1,0 +1,12 @@
+The method human_bytes should format file size in a human readable way as a string (e.g. "1.9 GB").
+beets/ui/__init__
+human_bytes( size ) // int size 
+2000000000 // int (2 billion)
+"1.9 GB" // String size
+
+//1. test number or ID
+//2. requirement being tested
+//3. component being tested
+//4. method being tested
+//5. test input(s) including command-line argument(s)
+//6. expected outcome(s)
