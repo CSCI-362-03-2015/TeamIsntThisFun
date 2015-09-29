@@ -1,3 +1,9 @@
+2a
+The method human_seconds should take in an integer corresponding to a number of seconds and output a human readable string displaying the time interval using English words.
+beets/ui/__init__
+human_seconds( interval ) # int interval
+ # int [NEEDED]
+ # String [NEEDED]
 
 #1. test number or ID
 #2. requirement being tested
