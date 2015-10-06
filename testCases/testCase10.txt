@@ -3,7 +3,7 @@ The method human_seconds should take in an integer corresponding to a number of 
 beets/ui/__init__
 human_seconds( interval ) # int interval
  # int '60.5'
- # String 'One Minute and Half a Second'
+ # String '1 Minute and 0.5 Seconds'
 
 #1. test number or ID
 #2. requirement being tested
