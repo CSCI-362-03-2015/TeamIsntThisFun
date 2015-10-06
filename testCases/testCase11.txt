@@ -2,8 +2,8 @@
 The method should take in an integer corresponding to a number of seconds and output a short human-readable M:SS string displaying the time.
 beets/ui/__init__
 human_seconds_short( interval ) # int interval
- # int [NEEDED]
- # String [NEEDED]
+ # int 0
+ # String 0:00
 
 #1. test number or ID
 #2. requirement being tested
