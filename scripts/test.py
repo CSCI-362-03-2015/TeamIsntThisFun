@@ -30,6 +30,7 @@ def readFiles():
         # helper function here to populate an array of the 6 lines
         lineArray.append(line)
         print(line)
+        print()
       #driver(parseFiles(lineArray))
 
 def parseFiles(inLineArray):
