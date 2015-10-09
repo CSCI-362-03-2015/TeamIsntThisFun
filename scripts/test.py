@@ -1,20 +1,29 @@
-#!/usr/bin/env python
-
 import sys
-from beets.ui import human_bytes
+import os
 
 def main():
-  test1 = 1023
-  test2 = -1
-  test3 = 0
-  test4 = 2000000000 # 2 billion
-  test5 = None
-  
-  print("test1: " + human_bytes(test1) + "\n")
-  print("test2: " + human_bytes(test2) + "\n")
-  print("test3: " + human_bytes(test3) + "\n")
-  print("test4: " + human_bytes(test4) + "\n")
-  print("test5: " + human_bytes(test5))
+  # todo: import 5 beets functions or all of beets if necessary
+  # todo: write 4 helper functions: open file, run the method, compare results, write to html output
+
+  # by this point we have imported all beets function necessary
+
+  # walk the tree
+  rootDir = '../testCases/'
+
+  for filename in os.listdir(rootDir):
+
+    with open(os.path.join(rootDir, filename), "r") as f:
+      print(filename);
+      for line in f:
+        # helper function here to populate an array of the 6 lines
+        print(line);
+
+        # helper function here to call the beets function with input
+
+        # helper function to compare results
+
+        # helper function to pass output to html file
+
 
 if __name__ == "__main__":
   main()
