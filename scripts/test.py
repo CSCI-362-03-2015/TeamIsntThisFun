@@ -33,6 +33,15 @@ def readFiles():
         print()
       #driver(parseFiles(lineArray))
 
+  for filename in os.listdir(rootDir):
+
+    with open(os.path.join(rootDir, filename), "r") as f:
+      #infoLines is an array populated by the first six lines of the testCase file
+      infoLines = f.readlines()[0:6]
+      infoLines = list(map(str.strip,infoLines))
+
+      driver(parseFiles(infoLines))
+
 def parseFiles(inLineArray):
   #1. test number or ID
   #2. requirement being tested
@@ -63,9 +72,9 @@ def parseFiles(inLineArray):
   return returnVal
 
 
-def driver(info):
-  inFuncName = info[0]
-  inInputVal = info[1]
+def driver(fileInformation):
+  inFuncName = info[3]
+  inInputVal = info[4]
 
   output = getattr(ui, inFuncName)(inInputVal)
   print(output)
