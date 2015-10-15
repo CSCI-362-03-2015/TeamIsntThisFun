@@ -71,6 +71,11 @@ def parseFiles(inLineArray):
   returnVal = [funcName, inputVal]
   return returnVal
 
+def compare(oracle, actualOutput):
+  if oracle == actualOutput:
+    return True
+  else:
+    return False
 
 def driver(fileInformation):
   inFuncName = info[3]
