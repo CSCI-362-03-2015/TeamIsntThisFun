@@ -77,7 +77,7 @@ def compare(oracle, actualOutput):
   else:
     return False
 
-def driver(fileInformation):
+def driver(info):
   inFuncName = info[3]
   inInputVal = info[4]
 
