@@ -79,13 +79,5 @@ def compare(oracle, actualOutput):
         return False
 
 
-def driver(info):
-    inFuncName = info[3]
-    inInputVal = info[4]
-
-    output = getattr(ui, inFuncName)(inInputVal)
-    #print(output)
-
-
 if __name__ == "__main__":
     main()
