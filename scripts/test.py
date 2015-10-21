@@ -29,8 +29,8 @@ def readFiles():
       for line in f:
         # helper function here to populate an array of the 6 lines
         lineArray.append(line)
-        print(line)
-        print()
+        #print(line)
+        #print
       #driver(parseFiles(lineArray))
 
   for filename in os.listdir(rootDir):
@@ -52,11 +52,14 @@ def parseFiles(inLineArray):
 
   paren = '('
   comm = '#'
+  defaultDriver = "driver"
+
+  componentName = inLineArray[2]
 
   head, mid, tail = inLineArray[3].partition(paren)
   funcName = head
 
-  print(inLineArray[4])
+  #print(inLineArray[4])
   if '#' in inLineArray[4]:
     head, mid, tail = inLineArray[4].partition(comm)
   else:
@@ -68,7 +71,12 @@ def parseFiles(inLineArray):
     print(head)
     inputVal = 1.0
 
-  returnVal = [funcName, inputVal]
+  try:
+    driverName = inLineArray[6]
+  except:
+    driverName = defaultDriver
+
+  returnVal = [inLineArray[0], inLineArray[1], componentName, funcName, inputVal, inLineArray[5], driverName]
   return returnVal
 
 def compare(oracle, actualOutput):
