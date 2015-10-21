@@ -1,7 +1,8 @@
 import sys
 import os
-from beets import ui
-
+import importlib
+import drivers
+from drivers import driverDefault
 
 # from beets.ui import human_bytes
 
@@ -21,16 +22,18 @@ def main():
 
 def readFiles():
     rootDir = '../testCases/'
-
     count = 0
 
     for filename in os.listdir(rootDir):
         with open(os.path.join(rootDir, filename), "r") as f:
             # infoLines is an array populated by the first six lines of the testCase file
-            infoLines = f.readlines()[0:6]
+            infoLines = f.readlines()[0:7]
             infoLines = list(map(str.strip, infoLines))
 
-            driver(parseFiles(infoLines))
+            infoList = parseFiles(infoLines)
+            #driverName = importlib.import_module(infoLines[6])
+            #outputVal = getattr(drivers, driverName)(infoList)
+            output = driverDefault(infoLines)
             return 0
 
 
