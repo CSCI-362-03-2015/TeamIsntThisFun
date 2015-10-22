@@ -1,9 +1,10 @@
 2b
 The method human_seconds should take in an integer corresponding to a number of seconds and output a human readable string displaying the time interval using English words.
-beets/ui/__init__
+ui
 human_seconds( interval ) # int interval
- # int '0'
- # String '0 Seconds'
+0 # int '0'
+"0 seconds" # String '0 Seconds'
+driverDefault
 
 #1. test number or ID
 #2. requirement being tested
