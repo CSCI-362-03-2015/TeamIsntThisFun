@@ -3,7 +3,7 @@ The method human_seconds should take in an integer corresponding to a number of 
 ui
 human_seconds( interval ) # int interval
 60.5 # int '60.5'
-1.0 minutes # String
+"1.0 minutes" # String
 driverDefault
 
 #1. test number or ID
