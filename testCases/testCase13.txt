@@ -1,9 +1,10 @@
 3c
 The method should take in an integer corresponding to a number of seconds and output a short human-readable M:SS string displaying the time.
-beets/ui/__init__
+ui
 human_seconds_short( interval ) # int interval
- # int '-1'
- # String 'InputError'
+"-1" # int '-1'
+InputError # String 'InputError'
+driverDefault
 
 #1. test number or ID
 #2. requirement being tested
@@ -11,3 +12,4 @@ human_seconds_short( interval ) # int interval
 #4. method being tested
 #5. test input(s) including command-line argument(s)
 #6. expected outcome(s)
+#7. driver name
