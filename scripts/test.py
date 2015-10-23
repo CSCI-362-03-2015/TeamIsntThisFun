@@ -20,7 +20,7 @@ contents1 = '''<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 </head>
 <body>'''
 
-contents2 = '''<table border="1" style="width:90%"> 
+contents2 = '''<table name="mytable" id="mytable" border="1" style="width:90%">
                 <tr> 
                     <td>Test #</td>
                     <td>Req. Tested</td>
@@ -32,7 +32,35 @@ contents2 = '''<table border="1" style="width:90%">
                     <td>Pass or Fail</td>
                 </tr>'''
 
-contents3 = '''</table></body></html>'''
+contents3 = '''</table>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>
+            function sortTable( jQuery ){
+              var rows = $('#mytable tbody  tr').get();
+
+              rows.sort(function(a, b) {
+
+              var A = $(a).children('td').eq(0).text().toUpperCase();
+              var B = $(b).children('td').eq(0).text().toUpperCase();
+
+              if(A < B) {
+                return -1;
+              }
+
+              if(A > B) {
+                return 1;
+              }
+
+              return 0;
+
+              });
+
+              $.each(rows, function(index, row) {
+                $('#mytable').children('tbody').append(row);
+              });
+            }
+            $( document ).ready( sortTable );
+        </script></body></html>'''
 
 def main():
     # todo: import 5 beets functions or all of beets if necessary
@@ -60,12 +88,18 @@ def driverDefault(info):
         inFuncName = "human_bytes"
     try:
         inInputVal = info[4]
-    except: 
+    except:
         inInputVal = 1.0
-    
 
 
-    output = getattr(ui, inFuncName)(inInputVal)
+    try:
+        output = getattr(ui, inFuncName)(inInputVal)
+    except TypeError as e:
+        output = "TypeError"
+    #except InputError:
+    #    output = "InputError"
+    except:
+        output = "Error"
     return output
 
 
@@ -95,6 +129,10 @@ def readFiles():
             # print line
         infoList = parseFiles(infoLines)
         output = driverDefault(infoList)
+        try:
+            output = str(output)
+        except:
+            pass
         contents2 = report(infoList, contents2, output)
         f.close()
         
@@ -126,6 +164,7 @@ def parseFiles(inLineArray):
 
     paren = '('
     comm = '#'
+    quote = '"'
     defaultDriver = "driver"
 
     componentName = inLineArray[2]
@@ -142,8 +181,7 @@ def parseFiles(inLineArray):
     try:
         inputVal = float(head.strip())
     except:
-        print(head)
-        inputVal = 1.0
+        inputVal = inLineArray[4]
         
     if '#' in inLineArray[5]:
         head, mid, tail = inLineArray[5].partition(comm)
@@ -151,7 +189,8 @@ def parseFiles(inLineArray):
         head = inLineArray[5]
     
     try:
-        expectedVal = head.strip()
+        expectedVal = head.replace(quote, "")
+        expectedVal = expectedVal.strip()
     except:
         print(head)
         expectedVal = "Test"
