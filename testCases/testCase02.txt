@@ -5,6 +5,7 @@ human_bytes( size ) # int size
 -1 # int
 InputError # String size
 driverDefault
+int
 
 #1. test number or ID
 #2. requirement being tested
@@ -13,3 +14,4 @@ driverDefault
 #5. test input(s) including command-line argument(s)
 #6. expected outcome(s)
 #7. driver name
+#8. input type

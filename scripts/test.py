@@ -93,7 +93,7 @@ def driverDefault(info):
 
 
     try:
-        output = getattr(ui, inFuncName)(inInputVal)
+        output = getattr(ui, inFuncName)(inInputVal[0])
     except TypeError as e:
         output = "TypeError"
     #except InputError:
@@ -128,7 +128,7 @@ def readFiles():
             infoLines[i] = line
             # print line
         infoList = parseFiles(infoLines)
-        output = driverDefault(infoList)
+        '''output = driverDefault(infoList)
         try:
             output = str(output)
         except:
@@ -136,7 +136,7 @@ def readFiles():
         contents2 = report(infoList, contents2, output)
         f.close()
         
-    browseLocal(contents1 + contents2 + contents3)    
+    browseLocal(contents1 + contents2 + contents3)    '''
 
 
        
@@ -165,7 +165,9 @@ def parseFiles(inLineArray):
     paren = '('
     comm = '#'
     quote = '"'
-    defaultDriver = "driver"
+    defaultDriver = "driverDefault"
+    inputList = []
+
 
     componentName = inLineArray[2]
 
@@ -179,9 +181,9 @@ def parseFiles(inLineArray):
         head = inLineArray[4]
 
     try:
-        inputVal = float(head.strip())
+        inputVal = inputList.append(float(head.strip()))
     except:
-        inputVal = inLineArray[4]
+        inputVal = inputList.insert(inLineArray[4])
         
     if '#' in inLineArray[5]:
         head, mid, tail = inLineArray[5].partition(comm)
@@ -193,7 +195,7 @@ def parseFiles(inLineArray):
         expectedVal = expectedVal.strip()
     except:
         print(head)
-        expectedVal = "Test"
+        expectedVal = ["Test"]
 
     try:
         driverName = inLineArray[6]

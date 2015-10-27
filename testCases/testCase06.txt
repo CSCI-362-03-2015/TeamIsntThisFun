@@ -5,6 +5,7 @@ human_seconds( interval ) # int interval
 600 # int '600'
 "10 minutes" # String '10 Minutes'
  driverDefault
+ int
 
 #1. test number or ID
 #2. requirement being tested
@@ -13,3 +14,4 @@ human_seconds( interval ) # int interval
 #5. test input(s) including command-line argument(s)
 #6. expected outcome(s)
 #7. driver name
+#8. input type

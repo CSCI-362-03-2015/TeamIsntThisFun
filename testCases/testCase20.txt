@@ -4,6 +4,8 @@ beets/ui/__init__
 _sc_decode( soundcheck ) # ? [NEEDED find out what soundcheck type is]
  # ? [NEEDED find input type]
  # ? [NEEDED find output type]
+ driver
+ inputType
 
 #1. test number or ID
 #2. requirement being tested
@@ -11,3 +13,5 @@ _sc_decode( soundcheck ) # ? [NEEDED find out what soundcheck type is]
 #4. method being tested
 #5. test input(s) including command-line argument(s)
 #6. expected outcome(s)
+#7. driver name
+#8. input type

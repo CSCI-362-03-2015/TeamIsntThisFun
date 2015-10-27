@@ -5,6 +5,7 @@ human_seconds_short( interval ) # int interval
 None # int NONE
 InputError # String InputError
 driverDefault
+int
 
 #1. test number or ID
 #2. requirement being tested
@@ -13,3 +14,4 @@ driverDefault
 #5. test input(s) including command-line argument(s)
 #6. expected outcome(s)
 #7. driver name
+#8. input type

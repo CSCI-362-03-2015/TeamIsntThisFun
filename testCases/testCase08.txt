@@ -5,7 +5,7 @@ human_seconds( interval ) # int interval
 583 # int '583'
 "9.7 minutes"  # String '9 Minutes and 43 Seconds' > '9.7'
 driverDefault
-
+int
 
 #1. test number or ID
 #2. requirement being tested
@@ -14,3 +14,4 @@ driverDefault
 #5. test input(s) including command-line argument(s)
 #6. expected outcome(s)
 #7. driver name
+#8. input type

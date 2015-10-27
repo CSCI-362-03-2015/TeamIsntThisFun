@@ -4,6 +4,8 @@ ui
 human_seconds_short( interval ) # int interval
 0 # int 0
 "0:00" # String 0:00
+driverDefault
+int
 
 #1. test number or ID
 #2. requirement being tested
@@ -12,3 +14,4 @@ human_seconds_short( interval ) # int interval
 #5. test input(s) including command-line argument(s)
 #6. expected outcome(s)
 #7. driver name
+#8. input type
