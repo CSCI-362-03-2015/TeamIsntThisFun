@@ -1,0 +1,15 @@
+3c
+The method should take in an integer corresponding to a number of seconds and output a short human-readable M:SS string displaying the time.
+ui
+human_seconds_short( interval ) # int interval
+"-1" # int '-1'
+InputError # String 'InputError'
+driverDefault
+
+#1. test number or ID
+#2. requirement being tested
+#3. component being tested
+#4. method being tested
+#5. test input(s) including command-line argument(s)
+#6. expected outcome(s)
+#7. driver name
