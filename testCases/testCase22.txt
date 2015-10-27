@@ -1,0 +1,15 @@
+5b
+The method should take in two strings as input and output basic string distance normalized by string length formed by a Levenshtein calculation as a float.
+beets/autotag/hooks
+_string_dist_basic( str1, str2 ) # String str1&2
+ # Strings [NEEDED]
+ # float [NEEDED]
+ defaultDriver
+
+#1. test number or ID
+#2. requirement being tested
+#3. component being tested
+#4. method being tested
+#5. test input(s) including command-line argument(s)
+#6. expected outcome(s)
+#7. driver name
