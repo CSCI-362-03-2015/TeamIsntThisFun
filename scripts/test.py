@@ -105,7 +105,7 @@ def driverDefault(info):
 
 def readFiles():
     rootDir = '../testCases/'
-    count = 0
+    testCaseLines = 8
 
     contents2 = '''<table border="1" style="width:100%"> 
             <tr> 
@@ -120,15 +120,15 @@ def readFiles():
             </tr>'''
     
     for filename in os.listdir(rootDir):
-        infoLines = [0, 1, 2, 3, 4, 5, 6]
-        N = 7
+        infoLines = [0] * testCaseLines
+        N = testCaseLines
         f = open("../testCases/" + filename)
         for i in range(N):
             line = f.next().strip()
             infoLines[i] = line
             # print line
         infoList = parseFiles(infoLines)
-        '''output = driverDefault(infoList)
+        output = driverDefault(infoList)
         try:
             output = str(output)
         except:
@@ -136,7 +136,7 @@ def readFiles():
         contents2 = report(infoList, contents2, output)
         f.close()
         
-    browseLocal(contents1 + contents2 + contents3)    '''
+    browseLocal(contents1 + contents2 + contents3)
 
 
        
@@ -180,11 +180,26 @@ def parseFiles(inLineArray):
     else:
         head = inLineArray[4]
 
-    try:
-        inputVal = inputList.append(float(head.strip()))
-    except:
-        inputVal = inputList.insert(inLineArray[4])
-        
+    inputType = inLineArray[7]
+
+    if (inputType == "string"):
+        try:
+            inputList.append(head.strip())
+        except:
+            inputList.append(inLineArray[4])
+    elif (inputType == "int"):
+        try:
+            inputList.append(int(head.strip()))
+        except:
+            inputList.append(inLineArray[4])
+    elif (inputType == "float"):
+        try:
+            inputList.append(float(head.strip()))
+        except:
+            inputList.append(inLineArray[4])
+    else:
+        inputList.append(inLineArray[4])
+
     if '#' in inLineArray[5]:
         head, mid, tail = inLineArray[5].partition(comm)
     else:
@@ -202,7 +217,7 @@ def parseFiles(inLineArray):
     except:
         driverName = defaultDriver
 
-    returnVal = [inLineArray[0], inLineArray[1], componentName, funcName, inputVal, expectedVal, driverName]
+    returnVal = [inLineArray[0], inLineArray[1], componentName, funcName, inputList, expectedVal, driverName]
     return returnVal
 
 
