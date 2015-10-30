@@ -8,6 +8,8 @@ def driverDefault(info):
     # 4. method being tested
     # 5. test input(s) including command-line argument(s)
     # 6. expected outcome(s)
+    # 7. driver name
+    # 8. input type
     componentName = importlib.import_module(info[2])
 
     inFuncName = info[3]
