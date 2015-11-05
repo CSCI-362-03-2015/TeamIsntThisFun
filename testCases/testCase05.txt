@@ -1,9 +1,9 @@
 1e
 The method human_bytes should format file size in a human readable way as a string (e.g. "1.9 GB").
 ui
-human_bytes( size ) # int size 
-None # int (expected)
-TypeError # String size (expected)
+human_bytes( size )
+None
+TypeError
 driverDefault
 int
 

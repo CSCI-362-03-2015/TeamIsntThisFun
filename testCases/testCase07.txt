@@ -1,9 +1,9 @@
 2b
 The method human_seconds should take in an integer corresponding to a number of seconds and output a human readable string displaying the time interval using English words.
 ui
-human_seconds( interval ) # int interval
-0 # int '0'
-"0 seconds" # String '0 Seconds'
+human_seconds( interval )
+0
+"0.0 seconds"
 driverDefault
 int
 

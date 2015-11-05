@@ -1,7 +1,7 @@
 import sys
 import os
 import importlib
-from beets import ui
+from TeamIsntThisFun.drivers.driverDefault import driverDefaultFunc
 
 # from drivers.driverDefault import driverDefault
 
@@ -32,35 +32,7 @@ contents2 = '''<table name="mytable" id="mytable" border="1" style="width:90%">
                     <td>Pass or Fail</td>
                 </tr>'''
 
-contents3 = '''</table>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script>
-            function sortTable( jQuery ){
-              var rows = $('#mytable tbody  tr').get();
-
-              rows.sort(function(a, b) {
-
-              var A = $(a).children('td').eq(0).text().toUpperCase();
-              var B = $(b).children('td').eq(0).text().toUpperCase();
-
-              if(A < B) {
-                return -1;
-              }
-
-              if(A > B) {
-                return 1;
-              }
-
-              return 0;
-
-              });
-
-              $.each(rows, function(index, row) {
-                $('#mytable').children('tbody').append(row);
-              });
-            }
-            $( document ).ready( sortTable );
-        </script></body></html>'''
+contents3 = '''</table></body></html>'''
 
 def main():
     # todo: import 5 beets functions or all of beets if necessary
@@ -70,38 +42,6 @@ def main():
 
     # walk the tree
     readFiles()
-
-import importlib
-
-def driverDefault(info):
-    # 1. test number or ID
-    # 2. requirement being tested
-    # 3. component being tested
-    # 4. method being tested
-    # 5. test input(s) including command-line argument(s)
-    # 6. expected outcome(s)
-    # componentName = importlib.import_module(info[2])
-
-    try:
-        inFuncName = info[3]
-    except: 
-        inFuncName = "human_bytes"
-    try:
-        inInputVal = info[4]
-    except:
-        inInputVal = 1.0
-
-
-    try:
-        output = getattr(ui, inFuncName)(inInputVal[0])
-    except TypeError as e:
-        output = "TypeError"
-    #except InputError:
-    #    output = "InputError"
-    except:
-        output = "Error"
-    return output
-
 
 def readFiles():
     rootDir = '../testCases/'
@@ -119,7 +59,7 @@ def readFiles():
                 <td>Pass</td>
             </tr>'''
     
-    for filename in os.listdir(rootDir):
+    for filename in sorted(os.listdir(rootDir)):
         infoLines = [0] * testCaseLines
         N = testCaseLines
         f = open("../testCases/" + filename)
@@ -128,7 +68,7 @@ def readFiles():
             infoLines[i] = line
             # print line
         infoList = parseFiles(infoLines)
-        output = driverDefault(infoList)
+        output = driverDefaultFunc(infoList)
         try:
             output = str(output)
         except:
@@ -174,31 +114,33 @@ def parseFiles(inLineArray):
     head, mid, tail = inLineArray[3].partition(paren)
     funcName = head
 
+    inputType = inLineArray[7]
+
     # print(inLineArray[4])
     if '#' in inLineArray[4]:
         head, mid, tail = inLineArray[4].partition(comm)
     else:
         head = inLineArray[4]
 
-    inputType = inLineArray[7]
-
-    if (inputType == "string"):
-        try:
-            inputList.append(head.strip())
-        except:
+    splitInputs = head.split(',')
+    for i in range(len(splitInputs)):
+        if (inputType == "string"):
+            try:
+                inputList.append(head.strip())
+            except:
+                inputList.append(inLineArray[4])
+        elif (inputType == "int"):
+            try:
+                inputList.append(int(head.strip()))
+            except:
+                inputList.append(inLineArray[4])
+        elif (inputType == "float"):
+            try:
+                inputList.append(float(head.strip()))
+            except:
+                inputList.append(inLineArray[4])
+        else:
             inputList.append(inLineArray[4])
-    elif (inputType == "int"):
-        try:
-            inputList.append(int(head.strip()))
-        except:
-            inputList.append(inLineArray[4])
-    elif (inputType == "float"):
-        try:
-            inputList.append(float(head.strip()))
-        except:
-            inputList.append(inLineArray[4])
-    else:
-        inputList.append(inLineArray[4])
 
     if '#' in inLineArray[5]:
         head, mid, tail = inLineArray[5].partition(comm)
@@ -216,6 +158,7 @@ def parseFiles(inLineArray):
         driverName = inLineArray[6]
     except:
         driverName = defaultDriver
+
 
     returnVal = [inLineArray[0], inLineArray[1], componentName, funcName, inputList, expectedVal, driverName]
     return returnVal

@@ -1,9 +1,9 @@
 3e
 The method should take in an integer corresponding to a number of seconds and output a short human-readable M:SS string displaying the time.
 ui
-human_seconds_short( interval ) # int interval
-5.5 # '5.5'
-0:05 # String
+human_seconds_short( interval )
+5.5
+0:05
 driverDefault
 float
 

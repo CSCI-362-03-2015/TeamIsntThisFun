@@ -1,9 +1,9 @@
 1a
 The method human_bytes should format file size in a human readable way as a string (e.g. "1.9 GB").
 ui
-human_bytes( size ) # int size 
-1023 # int
-"1023.0 B" # String size
+human_bytes( size )
+1023
+"1023.0 B"
 driverDefault
 int
 

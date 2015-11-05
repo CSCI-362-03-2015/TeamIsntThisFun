@@ -1,9 +1,9 @@
 3c
 The method should take in an integer corresponding to a number of seconds and output a short human-readable M:SS string displaying the time.
 ui
-human_seconds_short( interval ) # int interval
-"-1" # int '-1'
-InputError # String 'InputError'
+human_seconds_short( interval )
+-1
+TypeError
 driverDefault
 int
 

@@ -1,9 +1,9 @@
 2c
 The method human_seconds should take in an integer corresponding to a number of seconds and output a human readable string displaying the time interval using English words.
 ui
-human_seconds( interval ) # int interval
-583 # int '583'
-"9.7 minutes"  # String '9 Minutes and 43 Seconds' > '9.7'
+human_seconds( interval )
+583
+"9.7 minutes"
 driverDefault
 int
 

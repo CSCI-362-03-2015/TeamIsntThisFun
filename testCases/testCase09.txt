@@ -1,9 +1,9 @@
 2d
 The method human_seconds should take in an integer corresponding to a number of seconds and output a human readable string displaying the time interval using English words.
 ui
-human_seconds( interval ) # int interval
--1 # int '-1'
-InputError # String 'InputError'
+human_seconds( interval )
+-1
+TypeError
 driverDefault
 int
 
