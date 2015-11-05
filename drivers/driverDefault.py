@@ -55,6 +55,8 @@ def driverDefaultFunc(info):
                 output = "TypeError"
             #except InputError:
             #    output = "InputError"
+            except AssertionError as e:
+                output = "AssertionError"
             except Exception, e:
                 print(str(e))
                 print(repr(e))

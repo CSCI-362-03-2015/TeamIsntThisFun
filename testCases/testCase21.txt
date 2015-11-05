@@ -5,7 +5,7 @@ _string_dist_basic( str1, str2 )
 blue, red
 1.0
 defaultDriver
-string, string
+unicode, unicode
 
 #1. test number or ID
 #2. requirement being tested

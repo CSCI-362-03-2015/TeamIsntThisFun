@@ -3,9 +3,9 @@ The method should take in two strings as input and output basic string distance 
 autotag
 _string_dist_basic( str1, str2 ) # String str1&2
 1, Hello
-TypeError
+AssertionError
 defaultDriver
-int, string
+int, unicode
 
 #1. test number or ID
 #2. requirement being tested

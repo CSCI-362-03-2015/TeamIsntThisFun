@@ -132,6 +132,11 @@ def parseFiles(inLineArray):
                     inputList.append(bool(splitInputs[i].strip()))
                 except:
                     inputList.append(inLineArray[4])
+            elif (inputType[i].strip() == "unicode"):
+                try:
+                    inputList.append(unicode(splitInputs[i].strip()))
+                except:
+                    inputList.append(inLineArray[4])
             else:
                 inputList.append(inLineArray[4])
 

@@ -3,7 +3,7 @@ The method human_bytes should format file size in a human readable way as a stri
 ui
 human_bytes( size )
 2000000000
-"1.9 GB"
+"1.9 GiB"
 driverDefault
 int
 

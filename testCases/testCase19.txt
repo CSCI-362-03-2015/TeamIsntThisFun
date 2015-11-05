@@ -3,7 +3,7 @@ Given a boolean or None, return the original value or a fallback.
 ui
 _bool_fallback(a, b)
 True, False
-AssertionError
+True
 driverDefault
 bool, bool
 
