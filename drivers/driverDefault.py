@@ -35,8 +35,8 @@ def driverDefaultFunc(info):
      #       output = getattr(autotag, inFuncName)(inInputVal[0])
      #   except TypeError as e:
      #       output = "TypeError"
-     #   #except InputError:
-     #   #    output = "InputError"
+        #except InputError:
+        #    output = "InputError"
      #   except:
      #       output = "Error"
 
