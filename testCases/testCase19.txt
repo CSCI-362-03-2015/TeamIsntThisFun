@@ -1,11 +1,11 @@
 4d
-The method should take soundcheck files as input and output a decoded full scale value.
-beets/ui/__init__
-_sc_decode( soundcheck ) # ? [NEEDED find out what soundcheck type is]
- # ? [NEEDED find input type]
- # ? [NEEDED find output type]
-driver
-inputType
+Given a boolean or None, return the original value or a fallback.
+ui
+_bool_fallback(a, b)
+True, False
+AssertionError
+driverDefault
+bool, bool
 
 #1. test number or ID
 #2. requirement being tested

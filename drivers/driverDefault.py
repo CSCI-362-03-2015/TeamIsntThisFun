@@ -1,15 +1,13 @@
-from beets import ui
-from beets import autotag
+from TeamIsntThisFun.project.src.beets.beets import autotag
+from TeamIsntThisFun.project.src.beets.beets import ui
+from beets.autotag import hooks
 import beets
 
 def driverDefaultFunc(info):
     """Calls the function specified in the test case specification file with the specified inputs, then returns the output."""
-    # 1. test number or ID
-    # 2. requirement being tested
-    # 3. component being tested
-    # 4. method being tested
-    # 5. test input(s) including command-line argument(s)
-    # 6. expected outcome(s)
+    # info[2]. component being tested
+    # info[3]. method being tested
+    # info[4]. test input(s) including command-line argument(s)
     #componentName = importlib.import_module(beets)
 
     try:
@@ -21,7 +19,7 @@ def driverDefaultFunc(info):
     except:
         pass
 
-    if (info[2] == "ui"):
+    if (len(inInputVal) == 1):
         try:
             output = getattr(ui, inFuncName)(inInputVal[0])
         except TypeError as e:
@@ -30,15 +28,36 @@ def driverDefaultFunc(info):
         #    output = "InputError"
         except:
             output = "Error"
+    elif (len(inInputVal) == 2):
+        if (info[2] == "autotag"):
+            print(info[0] + "   rrr1")
+            try:
+                output = getattr(autotag.hooks, inFuncName)(inInputVal[0], inInputVal[1])
+            except TypeError as e:
+                output = "TypeError"
+            #except InputError:
+            #    output = "InputError"
+            except AssertionError as e:
+                output = "AssertionError"
+            except Exception, e:
+                print(str(e))
+                print(repr(e))
+                output = "Errorrr"
+        elif (info[2] == "ui"):
+            print(info[0] + "   rrr2")
+            try:
+                #output = getattr(ui, "human_bytes")(None)
 
-     #elif (info[2] == "autotag"):
-     #   try:
-     #       output = getattr(autotag, inFuncName)(inInputVal[0])
-     #   except TypeError as e:
-     #       output = "TypeError"
-        #except InputError:
-        #    output = "InputError"
-     #   except:
-     #       output = "Error"
+                output = getattr(ui, inFuncName)(inInputVal[0], inInputVal[1])
+            except TypeError as e:
+                output = "TypeError"
+            #except InputError:
+            #    output = "InputError"
+            except Exception, e:
+                print(str(e))
+                print(repr(e))
+                output = "Errorrr2"
+    else:
+        output = "The"
 
     return output

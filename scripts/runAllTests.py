@@ -85,7 +85,6 @@ def parseFiles(inLineArray):
 
     head, mid, tail = inLineArray[3].partition(paren)
     funcName = head
-
     inputType = inLineArray[7]
 
     if '#' in inLineArray[4]:
@@ -93,25 +92,45 @@ def parseFiles(inLineArray):
     else:
         head = inLineArray[4]
 
+    inputType = inLineArray[7].split(',')
     splitInputs = head.split(',')
-    for i in range(len(splitInputs)):
-        if (inputType == "string"):
-            try:
-                inputList.append(head.strip())
-            except:
+
+    if (len(inputType) != len(splitInputs)):
+        pass    ###########################Add here
+    else:
+        for i in range(len(splitInputs)):
+            if (inputType[i].strip() == "string"):
+                try:
+                    inputList.append(splitInputs[i].strip())
+                except:
+                    inputList.append(inLineArray[4])
+            elif (inputType[i].strip() == "int"):
+                try:
+                    inputList.append(int(splitInputs[i].strip()))
+                except:
+                    inputList.append(inLineArray[4])
+            elif (inputType[i].strip() == "float"):
+                try:
+                    inputList.append(float(splitInputs[i].strip()))
+                except:
+                    inputList.append(inLineArray[4])
+            elif (inputType[i].strip() == "char"):
+                try:
+                    inputList.append(chr(splitInputs[i].strip()))
+                except:
+                    inputList.append(inLineArray[4])
+            elif (inputType[i].strip() == "NoneType"):
+                try:
+                    inputList.append(None)
+                except:
+                    inputList.append(inLineArray[4])
+            elif (inputType[i].strip() == "bool"):
+                try:
+                    inputList.append(bool(splitInputs[i].strip()))
+                except:
+                    inputList.append(inLineArray[4])
+            else:
                 inputList.append(inLineArray[4])
-        elif (inputType == "int"):
-            try:
-                inputList.append(int(head.strip()))
-            except:
-                inputList.append(inLineArray[4])
-        elif (inputType == "float"):
-            try:
-                inputList.append(float(head.strip()))
-            except:
-                inputList.append(inLineArray[4])
-        else:
-            inputList.append(inLineArray[4])
 
     if '#' in inLineArray[5]:
         head, mid, tail = inLineArray[5].partition(comm)
@@ -129,7 +148,6 @@ def parseFiles(inLineArray):
         driverName = inLineArray[6]
     except:
         driverName = defaultDriver
-
 
     returnVal = [inLineArray[0], inLineArray[1], componentName, funcName, inputList, expectedVal, driverName]
     return returnVal
@@ -168,7 +186,7 @@ def report(returnVal, contents2, outputVal):
                     <td>''' + str(returnVal[4]) + '''</td>
                     <td>''' + str(returnVal[5]) + '''</td>
                     <td>''' + str(outputVal) + '''</td>
-                    <td>''' + str(compare(returnVal[5], outputVal)) + '''</td>
+                    <td>''' + str(compare(str(returnVal[5]), str(outputVal))) + '''</td>
                 </tr>'''
     return contents2
 
