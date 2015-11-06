@@ -18,6 +18,7 @@ import os
 
 #sys.path.insert(0, 'TeamIsntThisFun')
 from TeamIsntThisFun.drivers import driverDefault
+import TeamIsntThisFun
 
 # Full script plan:
 #   Read file (populate array) -> Parse file -> Sent to driver, calls functions from parse
@@ -45,7 +46,7 @@ def readFiles():
                 <td>Actual Outcome</td>
                 <td width="10%">Outcome</td>
             </tr>'''
-    
+
     for filename in sorted(os.listdir(rootDir)):
         infoLines = [0] * testCaseLines
         N = testCaseLines
@@ -55,11 +56,20 @@ def readFiles():
             infoLines[i] = line
             # print line
         infoList = parseFiles(infoLines)
-        output = driverDefault.driverDefaultFunc(infoList)
-        try:
-            output = str(output)
-        except:
-            pass
+        driverName = infoList[6]
+        if (driverName != "driverDefault"):
+            output = "Driver not supported"
+            """output = getattr(TeamIsntThisFun.drivers.testDriver, "testDriverFunc")(infoList)
+            try:
+                output = str(output)
+            except:
+                pass"""
+        else:
+            output = driverDefault.driverDefaultFunc(infoList)
+            try:
+                output = str(output)
+            except:
+                pass
         contents2 = report(infoList, contents2, output)
         f.close()
         
@@ -156,6 +166,7 @@ def parseFiles(inLineArray):
                 try:
                     inputList.append(unicode(splitInputs[i].strip()))
                 except:
+                    print(inLineArray[0] + "    unicode fail")
                     inputList.append(inLineArray[4])
             else:
                 inputList.append(inLineArray[4])

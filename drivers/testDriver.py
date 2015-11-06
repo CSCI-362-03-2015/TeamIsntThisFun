@@ -3,7 +3,7 @@ from TeamIsntThisFun.project.src.beets.beets import ui
 from beets.autotag import hooks
 import beets
 
-def driverDefaultFunc(info):
+def testDriverFunc(info):
     """Calls the function specified in the test case specification file with the specified inputs, then returns the output."""
     # info[2]. component being tested
     # info[3]. method being tested
@@ -34,7 +34,7 @@ def driverDefaultFunc(info):
         if (info[2] == "autotag"):
             #print(info[0] + "   rrr1")
             try:
-                output = getattr(autotag.hooks, inFuncName)(inInputVal[0], inInputVal[1])
+                output = getattr(autotag, inFuncName)(inInputVal[0], inInputVal[1])
             except TypeError as e:
                 output = "TypeError"
             #except InputError:

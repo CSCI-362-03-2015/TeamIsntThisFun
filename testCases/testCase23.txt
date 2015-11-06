@@ -4,7 +4,7 @@ autotag
 _string_dist_basic( str1, str2 )
 Supercalifragilisticexpialidocious, Antidisestablishmentarianism
 0.764705882353
-defaultDriver
+driverDefault
 unicode, unicode
 
 #1. test number or ID

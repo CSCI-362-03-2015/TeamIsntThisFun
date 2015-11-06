@@ -4,7 +4,7 @@ autotag
 _string_dist_basic( str1, str2 )
 kites, rites
 0.2
-defaultDriver
+driverDefault
 unicode, unicode
 
 #1. test number or ID

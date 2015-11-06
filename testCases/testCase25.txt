@@ -4,7 +4,7 @@ autotag
 _string_dist_basic( str1, str2 ) # String str1&2
 1, Hello
 AssertionError
-defaultDriver
+driverDefault
 int, unicode
 
 #1. test number or ID
