@@ -1,15 +1,14 @@
 #!/usr/bin/python
 ## Written by Team IsntThisFun:
-##  Ben Byrd
 ##  Zachary Davis
-##  Kaitlyn Fulford
+##  Ben Byrd
 ##  Adam Sugarman
+##  Katelyn Fulford
 ##
 ## CSCI 362-03
 ## Due: December 01, 2015
 
 import os
-import datetime
 #import sys; print(sys.executable)
 #import os; print(os.getcwd())
 #import sys; print(sys.path)
@@ -20,14 +19,11 @@ import datetime
 #sys.path.insert(0, 'TeamIsntThisFun')
 from TeamIsntThisFun.drivers import driverDefault
 
-# Full Script Architectural Plan:
+# Full script plan:
 #   Read file (populate array) -> Parse file -> Sent to driver, calls functions from parse
 #   -> Output to report function -> Html
 
 def main():
-    
-    #clear temp folder of old and unneeded reports and begin browsing and parsing test cases
-    clearTemp()
     readFiles()
 
 def readFiles():
@@ -80,22 +76,14 @@ def readFiles():
     ## Predefined footer for HTML report
     contents3 = '''</table></body></html>'''
         
-    
-    # Write to file
-    save_path = '../temp'
-    fileName = datetime.datetime.now().strftime("%I:%M%p on %B %d, %Y")
-    completeName = os.path.join(save_path, fileName)
-    htmlReport = open(completeName, "w")
-    htmlReport.write(contents1 + contents2 + contents3)
-    htmlReport.close()
-    
     ## Build HTML page and generate it in a browser window
     browseLocal(contents1 + contents2 + contents3)
-   
+    Html_file = open("testReport","w")
+    Html_file.write(contents1 + contents2 + contents3)
+    Html_file.close()
 
 def parseFiles(inLineArray):
     """Parse the list of lines from the test case specification file to put these lines in the correct format."""
-    """Test Case:"""
     # 1. test number or ID
     # 2. requirement being tested
     # 3. component being tested
@@ -125,8 +113,7 @@ def parseFiles(inLineArray):
 
     inputType = inLineArray[7].split(',')
     splitInputs = head.split(',')
-    
-    # Check for input type
+
     if (len(inputType) != len(splitInputs)):
         pass    ###########################Add here
     else:
@@ -236,84 +223,6 @@ def report(returnVal, contents2, outputVal):
                     <td>''' + str(compare(str(returnVal[5]), str(outputVal))) + '''</td>
                 </tr>'''
     return contents2
-
-from TeamIsntThisFun.project.src.beets.beets import autotag
-from TeamIsntThisFun.project.src.beets.beets import ui
-from beets.autotag import hooks
-import beets
-
-def driverDefaultFunc(info):
-    """Calls the function specified in the test case specification file with the specified inputs, then returns the output."""
-    # info[2]. component being tested
-    # info[3]. method being tested
-    # info[4]. test input(s) including command-line argument(s)
-    #componentName = importlib.import_module(beets)
-
-    try:
-        inFuncName = info[3]
-    except:
-        inFuncName = "human_bytes"
-    try:
-        inInputVal = info[4]
-    except:
-        pass
-
-    if (len(inInputVal) == 1):
-        try:
-            output = getattr(ui, inFuncName)(inInputVal[0])
-        except TypeError as e:
-            output = "TypeError"
-        #except InputError:
-        #    output = "InputError"
-        except:
-            output = "Error"
-    elif (len(inInputVal) == 2):
-        if (info[2] == "autotag"):
-            #print(info[0] + "   rrr1")
-            try:
-                output = getattr(autotag.hooks, inFuncName)(inInputVal[0], inInputVal[1])
-            except TypeError as e:
-                output = "TypeError"
-            #except InputError:
-            #    output = "InputError"
-            except AssertionError as e:
-                output = "AssertionError"
-            except Exception, e:
-                print(str(e))
-                print(repr(e))
-                output = "Errorrr"
-        elif (info[2] == "ui"):
-            #print(info[0] + "   rrr2")
-            try:
-                #output = getattr(ui, "human_bytes")(None)
-
-                output = getattr(ui, inFuncName)(inInputVal[0], inInputVal[1])
-            except TypeError as e:
-                output = "TypeError"
-            #except InputError:
-            #    output = "InputError"
-            except AssertionError as e:
-                output = "AssertionError"
-            except Exception, e:
-                print(str(e))
-                print(repr(e))
-                output = "Errorrr2"
-    else:
-        output = "Some Error"
-
-    return output
-    
-#Clear the temporary, temp, folder of old, unused test reports
-def clearTemp():
-    folder = '../temp/'
-    for item in os.listdir(folder):
-        file_path = os.path.join(folder, item)
-        try:
-            if os.path.isfile(file_path):
-                os.unlink(file_path)
-        except Exception, e:
-            print e
-
 
 if __name__ == "__main__":
     """Call main if the module is run and not if imported."""
