@@ -159,7 +159,7 @@ def parseFiles(inLineArray):
             elif (inputType[i].strip() == "bool"):
                 try:
                     if (splitInputs[i].strip() == "True"):
-                        inputList.append(bool(splitInputs[i].strip()))
+                        inputList.append(True)
                     if (splitInputs[i].strip() == "False"):
                         inputList.append(bool(""))
                 except:
@@ -223,7 +223,7 @@ def report(returnVal, contents2, outputVal):
     inputLen = len(returnVal[4])
     inputVal = str(returnVal[4][0])
     for i in range(inputLen-1):
-        inputVal += ", " + str(returnVal[4][i])
+        inputVal += ", " + str(returnVal[4][i+1])
 
     contents2 = contents2 + '''<tr> 
                     <td>''' + str(returnVal[0]) + '''</td>

@@ -5,7 +5,7 @@ human_seconds_short( interval )
 None
 TypeError
 driverDefault
-int
+NoneType
 
 #1. test number or ID
 #2. requirement being tested

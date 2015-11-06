@@ -27,8 +27,12 @@ def driverDefaultFunc(info):
             output = "TypeError"
         #except InputError:
         #    output = "InputError"
-        except:
-            output = "Error"
+        except ValueError as e:
+            output = "ValueError"
+        except Exception, e:
+            print(str(e))
+            print(repr(e))
+            output = "ErrorHere"
     ## If there are two input values, call function with two arguments
     elif (len(inInputVal) == 2):
         if (info[2] == "autotag"):
