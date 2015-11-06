@@ -1,7 +1,23 @@
-import sys
+#!/usr/bin/python
+## Written by Team IsntThisFun:
+##  Zachary Davis
+##  Ben Byrd
+##  Adam Sugarman
+##  Katelyn Fulford
+##
+## CSCI 362-03
+## Due: December 01, 2015
+
 import os
-import importlib
-from TeamIsntThisFun.drivers.driverDefault import driverDefaultFunc
+#import sys; print(sys.executable)
+#import os; print(os.getcwd())
+#import sys; print(sys.path)
+#import sys; sys.path.append(os.getcwd().index('TeamIsntThisFun')); print(sys.path)
+#import sys; sys.path.append('home/todzzx/TeamIsntThisFun.git/TeamIsntThisFun')
+#import sys; print(sys.path)
+
+#sys.path.insert(0, 'TeamIsntThisFun')
+from TeamIsntThisFun.drivers import driverDefault
 
 # Full script plan:
 #   Read file (populate array) -> Parse file -> Sent to driver, calls functions from parse
@@ -39,7 +55,7 @@ def readFiles():
             infoLines[i] = line
             # print line
         infoList = parseFiles(infoLines)
-        output = driverDefaultFunc(infoList)
+        output = driverDefault.driverDefaultFunc(infoList)
         try:
             output = str(output)
         except:
@@ -62,7 +78,7 @@ def readFiles():
         
     ## Build HTML page and generate it in a browser window
     browseLocal(contents1 + contents2 + contents3)
-    Html_file= open("testReport","w")
+    Html_file = open("testReport","w")
     Html_file.write(contents1 + contents2 + contents3)
     Html_file.close()
 
@@ -129,8 +145,12 @@ def parseFiles(inLineArray):
                     inputList.append(inLineArray[4])
             elif (inputType[i].strip() == "bool"):
                 try:
-                    inputList.append(bool(splitInputs[i].strip()))
+                    if (splitInputs[i].strip() == "True"):
+                        inputList.append(bool(splitInputs[i].strip()))
+                    if (splitInputs[i].strip() == "False"):
+                        inputList.append(bool(""))
                 except:
+                    print(inLineArray[0] + "    boolfail")
                     inputList.append(inLineArray[4])
             elif (inputType[i].strip() == "unicode"):
                 try:
@@ -185,18 +205,91 @@ def browseLocal(webpageText, filename='tempBrowseLocal.html'):
     
 def report(returnVal, contents2, outputVal):
     """ Write results of test to HTML file """
-    
+    """ returnVal = infoList, outputVal = output from driver """
+
+    inputLen = len(returnVal[4])
+    inputVal = str(returnVal[4][0])
+    for i in range(inputLen-1):
+        inputVal += ", " + str(returnVal[4][i])
+
     contents2 = contents2 + '''<tr> 
                     <td>''' + str(returnVal[0]) + '''</td>
                     <td>''' + str(returnVal[1]) + '''</td>
                     <td>''' + str(returnVal[2]) + '''</td> 
                     <td>''' + str(returnVal[3]) + '''</td>
-                    <td>''' + str(returnVal[4]) + '''</td>
+                    <td>''' + inputVal          + '''</td>
                     <td>''' + str(returnVal[5]) + '''</td>
-                    <td>''' + str(outputVal) + '''</td>
+                    <td>''' + str(outputVal)    + '''</td>
                     <td>''' + str(compare(str(returnVal[5]), str(outputVal))) + '''</td>
                 </tr>'''
     return contents2
+
+from TeamIsntThisFun.project.src.beets.beets import autotag
+from TeamIsntThisFun.project.src.beets.beets import ui
+from beets.autotag import hooks
+import beets
+
+def driverDefaultFunc(info):
+    """Calls the function specified in the test case specification file with the specified inputs, then returns the output."""
+    # info[2]. component being tested
+    # info[3]. method being tested
+    # info[4]. test input(s) including command-line argument(s)
+    #componentName = importlib.import_module(beets)
+
+    try:
+        inFuncName = info[3]
+    except:
+        inFuncName = "human_bytes"
+    try:
+        inInputVal = info[4]
+    except:
+        pass
+
+    if (len(inInputVal) == 1):
+        try:
+            output = getattr(ui, inFuncName)(inInputVal[0])
+        except TypeError as e:
+            output = "TypeError"
+        #except InputError:
+        #    output = "InputError"
+        except:
+            output = "Error"
+    elif (len(inInputVal) == 2):
+        if (info[2] == "autotag"):
+            #print(info[0] + "   rrr1")
+            try:
+                output = getattr(autotag.hooks, inFuncName)(inInputVal[0], inInputVal[1])
+            except TypeError as e:
+                output = "TypeError"
+            #except InputError:
+            #    output = "InputError"
+            except AssertionError as e:
+                output = "AssertionError"
+            except Exception, e:
+                print(str(e))
+                print(repr(e))
+                output = "Errorrr"
+        elif (info[2] == "ui"):
+            #print(info[0] + "   rrr2")
+            try:
+                #output = getattr(ui, "human_bytes")(None)
+
+                output = getattr(ui, inFuncName)(inInputVal[0], inInputVal[1])
+            except TypeError as e:
+                output = "TypeError"
+            #except InputError:
+            #    output = "InputError"
+            except AssertionError as e:
+                output = "AssertionError"
+            except Exception, e:
+                print(str(e))
+                print(repr(e))
+                output = "Errorrr2"
+    else:
+        output = "Some Error"
+
+    return output
+
 
 if __name__ == "__main__":
     """Call main if the module is run and not if imported."""
