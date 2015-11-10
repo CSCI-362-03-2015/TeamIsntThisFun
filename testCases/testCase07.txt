@@ -3,7 +3,7 @@ The method human_seconds should take in an integer corresponding to a number of 
 ui
 human_seconds( interval ) # int interval
 0 # int '0'
-"0 seconds" # String '0 Seconds'
+"0.0 seconds" # String '0 Seconds'
 driverDefault
 int
 
