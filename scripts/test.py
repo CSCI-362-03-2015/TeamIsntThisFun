@@ -34,7 +34,7 @@ def readFiles():
                 <td>Test Inputs</td>
                 <td>Expected Outcome</td>
                 <td>Actual Outcome</td>
-                <td>Pass</td>
+                <td width="10%">Outcome</td>
             </tr>'''
     
     for filename in sorted(os.listdir(rootDir)):
@@ -61,7 +61,8 @@ def readFiles():
                       <meta content="text/html; charset=ISO-8859-1"http-equiv="content-type">
                       <title>Isn't This Fun?</title>
                     </head>
-                    <body>'''
+                    <body>
+                        <h1>Beets Automated Test Suite</h1></br></br>'''
 
     ## Predefined footer for HTML report
     contents3 = '''</table></body></html>'''
