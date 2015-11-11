@@ -11,29 +11,6 @@ from TeamIsntThisFun.drivers.driverDefault import driverDefaultFunc
 #   Read file (populate array) -> Parse file -> Sent to driver, calls functions from parse
 #   -> Output to report function -> Html
 
-contents1 = '''<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
-  <meta content="text/html; charset=ISO-8859-1"
- http-equiv="content-type">
-  <title>Isn't This Fun?</title>
-</head>
-<body>'''
-
-contents2 = '''<table name="mytable" id="mytable" border="1" style="width:90%">
-                <tr> 
-                    <td>Test #</td>
-                    <td>Req. Tested</td>
-                    <td>Component Tested</td> 
-                    <td>Method Tested</td>
-                    <td>Test Inputs</td>
-                    <td>Expected Outcome</td>
-                    <td>Actual Outcome</td>
-                    <td>Pass or Fail</td>
-                </tr>'''
-
-contents3 = '''</table></body></html>'''
-
 def main():
     # todo: import 5 beets functions or all of beets if necessary
     # todo: write 4 helper functions: open file, run the method, compare results, write to html output
@@ -47,6 +24,7 @@ def readFiles():
     rootDir = '../testCases/'
     testCaseLines = 8
 
+    ## readFiles() will build the String contents2 with test case data to be later displayed on an HTML page
     contents2 = '''<table border="1" style="width:100%"> 
             <tr> 
             <td>Test #</td>
@@ -76,6 +54,19 @@ def readFiles():
         contents2 = report(infoList, contents2, output)
         f.close()
         
+    ## Predefined header for HTML report
+    contents1 = '''<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+                    <html>
+                    <head>
+                      <meta content="text/html; charset=ISO-8859-1"http-equiv="content-type">
+                      <title>Isn't This Fun?</title>
+                    </head>
+                    <body>'''
+
+    ## Predefined footer for HTML report
+    contents3 = '''</table></body></html>'''
+        
+    ## Build HTML page and generate it in a browser window
     browseLocal(contents1 + contents2 + contents3)
 
 
