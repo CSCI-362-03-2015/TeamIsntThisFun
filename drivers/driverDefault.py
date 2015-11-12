@@ -30,7 +30,7 @@ def driverDefaultFunc(info):
             output = "Error"
     elif (len(inInputVal) == 2):
         if (info[2] == "autotag"):
-            print(info[0] + "   rrr1")
+            #print(info[0] + "   rrr1")
             try:
                 output = getattr(autotag.hooks, inFuncName)(inInputVal[0], inInputVal[1])
             except TypeError as e:
@@ -44,7 +44,7 @@ def driverDefaultFunc(info):
                 print(repr(e))
                 output = "Errorrr"
         elif (info[2] == "ui"):
-            print(info[0] + "   rrr2")
+            #print(info[0] + "   rrr2")
             try:
                 #output = getattr(ui, "human_bytes")(None)
 
@@ -58,6 +58,6 @@ def driverDefaultFunc(info):
                 print(repr(e))
                 output = "Errorrr2"
     else:
-        output = "The"
+        output = "Some Error"
 
     return output
