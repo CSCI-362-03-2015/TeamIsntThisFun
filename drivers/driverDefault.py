@@ -19,6 +19,7 @@ def driverDefaultFunc(info):
     except:
         pass
 
+    ## If there is only one input value, call the function with one argument
     if (len(inInputVal) == 1):
         try:
             output = getattr(ui, inFuncName)(inInputVal[0])
@@ -28,6 +29,7 @@ def driverDefaultFunc(info):
         #    output = "InputError"
         except:
             output = "Error"
+    ## If there are two input values, call function with two arguments
     elif (len(inInputVal) == 2):
         if (info[2] == "autotag"):
             #print(info[0] + "   rrr1")
