@@ -3,6 +3,7 @@ from beets import autotag
 import beets
 
 def driverDefaultFunc(info):
+    """Calls the function specified in the test case specification file with the specified inputs, then returns the output."""
     # 1. test number or ID
     # 2. requirement being tested
     # 3. component being tested
