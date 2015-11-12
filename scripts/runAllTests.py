@@ -62,6 +62,9 @@ def readFiles():
         
     ## Build HTML page and generate it in a browser window
     browseLocal(contents1 + contents2 + contents3)
+    Html_file= open("testReport","w")
+    Html_file.write(contents1 + contents2 + contents3)
+    Html_file.close()
 
 def parseFiles(inLineArray):
     """Parse the list of lines from the test case specification file to put these lines in the correct format."""
