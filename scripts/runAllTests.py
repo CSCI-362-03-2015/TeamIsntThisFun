@@ -3,24 +3,17 @@ import os
 import importlib
 from TeamIsntThisFun.drivers.driverDefault import driverDefaultFunc
 
-# from drivers.driverDefault import driverDefault
-
-# from beets.ui import human_bytes
-
 # Full script plan:
 #   Read file (populate array) -> Parse file -> Sent to driver, calls functions from parse
 #   -> Output to report function -> Html
 
 def main():
-    # todo: import 5 beets functions or all of beets if necessary
-    # todo: write 4 helper functions: open file, run the method, compare results, write to html output
-
-    # by this point we have imported all beets function necessary
-
-    # walk the tree
     readFiles()
 
 def readFiles():
+    """Reads in the lines from the test case specification file, passes them to parse, passes parsed list to driver specified
+    by the test case specification file, and then calls the report function to handle building and displaying the results of
+    the test in an HTML page."""
     rootDir = '../testCases/'
     testCaseLines = 8
 
@@ -70,29 +63,16 @@ def readFiles():
     ## Build HTML page and generate it in a browser window
     browseLocal(contents1 + contents2 + contents3)
 
-
-       
-
-    # for filename in os.listdir(rootDir):
-    #    with open(os.path.join(rootDir, filename), "r") as f:
-            # infoLines is an array populated by the first six lines of the testCase file
-    #        infoLines = f.readlines()[0:7]
-    #        infoLines = list(map(str.strip, infoLines))
-
-    #        infoList = parseFiles(infoLines)
-            # driverName = importlib.import_module(infoLines[6])
-            # outputVal = getattr(drivers, driverName)(infoList)
-    #        output = driverDefault(infoLines)
-    #        f.close()
-
-
 def parseFiles(inLineArray):
+    """Parse the list of lines from the test case specification file to put these lines in the correct format."""
     # 1. test number or ID
     # 2. requirement being tested
     # 3. component being tested
     # 4. method being tested
     # 5. test input(s) including command-line argument(s)
     # 6. expected outcome(s)
+    # 7. driver name
+    # 8. input type
 
     paren = '('
     comm = '#'
@@ -108,7 +88,6 @@ def parseFiles(inLineArray):
 
     inputType = inLineArray[7]
 
-    # print(inLineArray[4])
     if '#' in inLineArray[4]:
         head, mid, tail = inLineArray[4].partition(comm)
     else:
@@ -157,6 +136,7 @@ def parseFiles(inLineArray):
 
 
 def compare(oracle, actualOutput):
+    """Test whether the expected value from the test case specification file equals the actual output from the function."""
     if oracle == actualOutput:
         return '''<font color='green'>Pass</font>'''
     else:
@@ -193,4 +173,5 @@ def report(returnVal, contents2, outputVal):
     return contents2
 
 if __name__ == "__main__":
+    """Call main if the module is run and not if imported."""
     main()
