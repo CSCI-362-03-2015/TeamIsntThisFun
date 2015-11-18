@@ -24,6 +24,9 @@ from TeamIsntThisFun.drivers import driverDefault
 #   -> Output to report function -> Html
 
 def main():
+    
+    #clear temp folder of old/unneeded reports and begin browsing/parsing test cases
+    clearTemp()
     readFiles()
 
 def readFiles():
@@ -76,11 +79,18 @@ def readFiles():
     ## Predefined footer for HTML report
     contents3 = '''</table></body></html>'''
         
+    
+    # write to file
+    save_path = '../temp'
+    fileName = datetime.datetime.now().strftime("%I:%M%p on %B %d, %Y")
+    completeName = os.path.join(save_path, fileName)
+    htmlReport = open(completeName, "w")
+    htmlReport.write(contents1 + contents2 + contents3)
+    htmlReport.close()
+    
     ## Build HTML page and generate it in a browser window
     browseLocal(contents1 + contents2 + contents3)
-    Html_file = open("testReport","w")
-    Html_file.write(contents1 + contents2 + contents3)
-    Html_file.close()
+   
 
 def parseFiles(inLineArray):
     """Parse the list of lines from the test case specification file to put these lines in the correct format."""
@@ -289,6 +299,16 @@ def driverDefaultFunc(info):
         output = "Some Error"
 
     return output
+    
+def clearTemp():
+    folder = '../temp/'
+    for item in os.listdir(folder):
+        file_path = os.path.join(folder, item)
+        try:
+            if os.path.isfile(file_path):
+                os.unlink(file_path)
+        except Exception, e:
+            print e
 
 
 if __name__ == "__main__":
