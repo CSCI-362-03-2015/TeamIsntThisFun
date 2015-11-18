@@ -301,6 +301,7 @@ def driverDefaultFunc(info):
 
     return output
     
+#Clears the temporary folder of old unused test reports
 def clearTemp():
     folder = '../temp/'
     for item in os.listdir(folder):
