@@ -1,9 +1,9 @@
 #!/usr/bin/python
 ## Written by Team IsntThisFun:
-##  Zachary Davis
 ##  Ben Byrd
+##  Zachary Davis
+##  Kaitlyn Fulford
 ##  Adam Sugarman
-##  Katelyn Fulford
 ##
 ## CSCI 362-03
 ## Due: December 01, 2015
@@ -20,13 +20,13 @@ import datetime
 #sys.path.insert(0, 'TeamIsntThisFun')
 from TeamIsntThisFun.drivers import driverDefault
 
-# Full script plan:
+# Full Script Architectural Plan:
 #   Read file (populate array) -> Parse file -> Sent to driver, calls functions from parse
 #   -> Output to report function -> Html
 
 def main():
     
-    #clear temp folder of old/unneeded reports and begin browsing/parsing test cases
+    #clear temp folder of old and unneeded reports and begin browsing and parsing test cases
     clearTemp()
     readFiles()
 
@@ -81,7 +81,7 @@ def readFiles():
     contents3 = '''</table></body></html>'''
         
     
-    # write to file
+    # Write to file
     save_path = '../temp'
     fileName = datetime.datetime.now().strftime("%I:%M%p on %B %d, %Y")
     completeName = os.path.join(save_path, fileName)
@@ -95,6 +95,7 @@ def readFiles():
 
 def parseFiles(inLineArray):
     """Parse the list of lines from the test case specification file to put these lines in the correct format."""
+    """Test Case:"""
     # 1. test number or ID
     # 2. requirement being tested
     # 3. component being tested
@@ -124,7 +125,8 @@ def parseFiles(inLineArray):
 
     inputType = inLineArray[7].split(',')
     splitInputs = head.split(',')
-
+    
+    # Check for input type
     if (len(inputType) != len(splitInputs)):
         pass    ###########################Add here
     else:
@@ -301,7 +303,7 @@ def driverDefaultFunc(info):
 
     return output
     
-#Clears the temporary folder of old unused test reports
+#Clear the temporary, temp, folder of old, unused test reports
 def clearTemp():
     folder = '../temp/'
     for item in os.listdir(folder):
