@@ -15,8 +15,16 @@ Adam Sugmarman - Programming / Design / Scripting
 
 Prerequisites: Python 2.7+
 
-The first step is to clone the TeamIsntThisFun repository. Afterwards, clone the repository located at Beets Github into the /project/src folder in the cloned TeamIsntThisFun repository.
+The first step is to clone the TeamIsntThisFun repository. This is done using the command:
 
-To run the automated testing framework navigate to the folder IsntThisFun/scripts.
+  “git clone git@github.com:https://github.com/CSCI-362-03-2015/TeamIsntThisFun.git“
+  
+Afterwards, navigate to the top-level directory in the cloned repository /TeamIsntThisFun. The next step is to clone the repository located at Beets Github into the /project/src folder in the cloned TeamIsntThisFun repository. This is done using the command:
 
-With these commands, “chmod +x runAllTests.sh” and “./runAllTests.sh”, the testing framework should execute automatically and output a test report in a web browser.
+  “git clone git@github.com:https://github.com/sampsyo/beets.git /project/src“
+
+To run the automated testing framework navigate to the top-level directory /TeamIsntThisFun.
+
+With these commands, “chmod +x runAllTests.py” and “./scripts/runAllTests.py”, the testing framework should execute automatically and output a test report in a web browser.
+
+In order to test the faults, copy /TeamIsntThisFun/docs/__init__.py to /TeamIsntThisFun/project/src/beets/beets/ui and /TeamIsntThisFun/docs/hooks.py to /TeamIsntThisFun/project/src/beets/beets/autotag. These files in the docs directory have the faults in them, therefore once the files are copied into the correct directory (overwriting the other copies), the script may simply be ran as normal.
