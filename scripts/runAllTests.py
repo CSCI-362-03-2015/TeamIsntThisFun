@@ -7,46 +7,39 @@
 ##
 ## CSCI 362-03
 ## Due: December 01, 2015
-
+ 
 import os
-#import sys; print(sys.executable)
-#import os; print(os.getcwd())
-#import sys; print(sys.path)
-#import sys; sys.path.append(os.getcwd().index('TeamIsntThisFun')); print(sys.path)
-#import sys; sys.path.append('home/todzzx/TeamIsntThisFun.git/TeamIsntThisFun')
-#import sys; print(sys.path)
-
+ 
 #sys.path.insert(0, 'TeamIsntThisFun')
-from TeamIsntThisFun.drivers import driverDefault
-import TeamIsntThisFun
-
+from drivers import driverDefault
+ 
 # Full script plan:
 #   Read file (populate array) -> Parse file -> Sent to driver, calls functions from parse
 #   -> Output to report function -> Html
-
+ 
 def main():
     readFiles()
-
+ 
 def readFiles():
     """Reads in the lines from the test case specification file, passes them to parse, passes parsed list to driver specified
     by the test case specification file, and then calls the report function to handle building and displaying the results of
     the test in an HTML page."""
     rootDir = '../testCases/'
     testCaseLines = 8
-
+ 
     ## readFiles() will build the String contents2 with test case data to be later displayed on an HTML page
-    contents2 = '''<table border="1" style="width:100%"> 
-            <tr> 
-            <td>Test #</td>
-                <td>Req. Tested</td>
-                <td>Component Tested</td> 
-                <td>Method Tested</td>
-                <td>Test Inputs</td>
-                <td>Expected Outcome</td>
-                <td>Actual Outcome</td>
-                <td width="10%">Outcome</td>
+    contents2 = '''<table id="contents" border="1" style="width:100%">
+            <tr>
+                <th>Test #</th>
+                <th>Req. Tested</th>
+                <th>Component Tested</th>
+                <th>Method Tested</th>
+                <th>Test Inputs</th>
+                <th>Expected Outcome</th>
+                <th>Actual Outcome</th>
+                <th width="10%">Outcome</th>
             </tr>'''
-
+ 
     for filename in sorted(os.listdir(rootDir)):
         infoLines = [0] * testCaseLines
         N = testCaseLines
@@ -59,11 +52,11 @@ def readFiles():
         driverName = infoList[6]
         if (driverName != "driverDefault"):
             output = "Driver not supported"
-            """output = getattr(TeamIsntThisFun.drivers.testDriver, "testDriverFunc")(infoList)
-            try:
-                output = str(output)
-            except:
-                pass"""
+            #output = getattr(TeamIsntThisFun.drivers.testDriver, "testDriverFunc")(infoList)
+            #try:
+            #    output = str(output)
+            #except:
+            #    pass
         else:
             output = driverDefault.driverDefaultFunc(infoList)
             try:
@@ -72,26 +65,53 @@ def readFiles():
                 pass
         contents2 = report(infoList, contents2, output)
         f.close()
-        
+       
     ## Predefined header for HTML report
     contents1 = '''<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
                     <html>
                     <head>
                       <meta content="text/html; charset=ISO-8859-1"http-equiv="content-type">
                       <title>Isn't This Fun?</title>
+                        <style>
+                            #contents {
+                                font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+                                width: 100%;
+                                border-collapse: collapse;
+                            }
+ 
+                            #contents td, #contents th {
+                                font-size: 1em;
+                                border: 1px solid #000000;
+                                padding: 3px 7px 2px 7px;
+                            }
+ 
+                            #contents th {
+                                font-size: 1.1em;
+                                text-align: left;
+                                padding-top: 5px;
+                                padding-bottom: 4px;
+                                background-color: #334dab;
+                                color: #ffffff;
+                            }
+ 
+                            #contents tr.alt td {
+                                color: #000000;
+                                background-color: #EAF2D3;
+                            }
+                        </style>
                     </head>
                     <body>
                         <h1>Beets Automated Test Suite</h1></br></br>'''
-
+ 
     ## Predefined footer for HTML report
     contents3 = '''</table></body></html>'''
-        
+       
     ## Build HTML page and generate it in a browser window
     browseLocal(contents1 + contents2 + contents3)
     Html_file = open("testReport","w")
     Html_file.write(contents1 + contents2 + contents3)
     Html_file.close()
-
+ 
 def parseFiles(inLineArray):
     """Parse the list of lines from the test case specification file to put these lines in the correct format."""
     # 1. test number or ID
@@ -102,28 +122,28 @@ def parseFiles(inLineArray):
     # 6. expected outcome(s)
     # 7. driver name
     # 8. input type
-
+ 
     paren = '('
     comm = '#'
     quote = '"'
     defaultDriver = "driverDefault"
     inputList = []
-
-
+ 
+ 
     componentName = inLineArray[2]
-
+ 
     head, mid, tail = inLineArray[3].partition(paren)
     funcName = head
     inputType = inLineArray[7]
-
+ 
     if '#' in inLineArray[4]:
         head, mid, tail = inLineArray[4].partition(comm)
     else:
         head = inLineArray[4]
-
+ 
     inputType = inLineArray[7].split(',')
     splitInputs = head.split(',')
-
+ 
     if (len(inputType) != len(splitInputs)):
         pass    ###########################Add here
     else:
@@ -170,63 +190,63 @@ def parseFiles(inLineArray):
                     inputList.append(inLineArray[4])
             else:
                 inputList.append(inLineArray[4])
-
+ 
     if '#' in inLineArray[5]:
         head, mid, tail = inLineArray[5].partition(comm)
     else:
         head = inLineArray[5]
-    
+   
     try:
         expectedVal = head.replace(quote, "")
         expectedVal = expectedVal.strip()
     except:
         print(head)
         expectedVal = ["Test"]
-
+ 
     try:
         driverName = inLineArray[6]
     except:
         driverName = defaultDriver
-
+ 
     returnVal = [inLineArray[0], inLineArray[1], componentName, funcName, inputList, expectedVal, driverName]
     return returnVal
-
-
+ 
+ 
 def compare(oracle, actualOutput):
     """Test whether the expected value from the test case specification file equals the actual output from the function."""
     if oracle == actualOutput:
         return '''<font color='green'>Pass</font>'''
     else:
         return '''<font color='red'>Fail</font>'''
-    
+   
          
-    
+   
 def strToFile(text, filename):
     """Write a file with the given name and the given text."""
     output = open(filename, "w")
     output.write(text)
     output.close()
-    
+   
 def browseLocal(webpageText, filename='tempBrowseLocal.html'):
     '''Start your webbrowser on a local file containing the text
     with given filename.'''
     import webbrowser, os.path
     strToFile(webpageText, filename)
     webbrowser.open("file:///" + os.path.abspath(filename))  # elaborated for Mac
-    
+   
 def report(returnVal, contents2, outputVal):
     """ Write results of test to HTML file """
     """ returnVal = infoList, outputVal = output from driver """
-
+ 
     inputLen = len(returnVal[4])
     inputVal = str(returnVal[4][0])
     for i in range(inputLen-1):
         inputVal += ", " + str(returnVal[4][i+1])
-
-    contents2 = contents2 + '''<tr> 
+ 
+    contents2 = contents2 + '''<tr>
                     <td>''' + str(returnVal[0]) + '''</td>
                     <td>''' + str(returnVal[1]) + '''</td>
-                    <td>''' + str(returnVal[2]) + '''</td> 
+                    <td>''' + str(returnVal[2]) + '''</td>
                     <td>''' + str(returnVal[3]) + '''</td>
                     <td>''' + inputVal          + '''</td>
                     <td>''' + str(returnVal[5]) + '''</td>
@@ -234,7 +254,7 @@ def report(returnVal, contents2, outputVal):
                     <td>''' + str(compare(str(returnVal[5]), str(outputVal))) + '''</td>
                 </tr>'''
     return contents2
-
+ 
 if __name__ == "__main__":
     """Call main if the module is run and not if imported."""
     main()
