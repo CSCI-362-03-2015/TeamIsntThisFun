@@ -21,7 +21,7 @@ The first step is to clone the TeamIsntThisFun repository. This is done using th
   
 You will need to add the scripts and reports modules to your Python site packages. To do this, open the terminal and type:   Python  
 Import site  
-Site.getsitepackages()[0]  
+site.getsitepackages()[0]  
 This is the directory the modules go in   
 You may need to edit permissions for this folder using Sudo chmod in order to add these files.
   
