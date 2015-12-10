@@ -9,6 +9,7 @@
 ## Due: December 01, 2015
  
 import os
+import datetime
  
 #sys.path.insert(0, 'TeamIsntThisFun')
 from drivers import driverDefault
@@ -261,7 +262,7 @@ def report(returnVal, contents2, outputVal):
                 </tr>'''
     return contents2
     
-    def clearTemp():
+def clearTemp():
     folder = '../temp/'
     for item in os.listdir(folder):
         file_path = os.path.join(folder, item)
