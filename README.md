@@ -19,6 +19,12 @@ The first step is to clone the TeamIsntThisFun repository. This is done using th
 
   “git clone https://github.com/CSCI-362-03-2015/TeamIsntThisFun.git“
   
+You will need to add the scripts and reports modules to your Python site packages. To do this, open the terminal and type: Python
+Import site
+Site.getsitepackages()[0]
+This is the directory the modules go in 
+You may need to edit permissions for this folder using Sudo chmod in order to add these files.
+  
 Afterwards, navigate to the top-level directory in the cloned repository /TeamIsntThisFun. The next step is to clone the repository located at Beets Github into the /project/src folder in the cloned TeamIsntThisFun repository. This is done using the command:
 
   “sudo git clone https://github.com/sampsyo/beets.git /project/src“
