@@ -18,6 +18,7 @@ from drivers import driverDefault
 #   -> Output to report function -> Html
  
 def main():
+    clearTemp()
     readFiles()
  
 def readFiles():
@@ -105,6 +106,11 @@ def readFiles():
  
     ## Predefined footer for HTML report
     contents3 = '''</table></body></html>'''
+    
+    ##write to temp
+    save_path = '../temp'
+    fileName = datetime.datetime.now().strftime("%I:%M%p on %B %d, %Y")
+    completeName = os.path.join(save_path, fileName)
        
     ## Build HTML page and generate it in a browser window
     browseLocal(contents1 + contents2 + contents3)
@@ -254,6 +260,17 @@ def report(returnVal, contents2, outputVal):
                     <td>''' + str(compare(str(returnVal[5]), str(outputVal))) + '''</td>
                 </tr>'''
     return contents2
+    
+    def clearTemp():
+    folder = '../temp/'
+    for item in os.listdir(folder):
+        file_path = os.path.join(folder, item)
+        try:
+            if os.path.isfile(file_path):
+                os.unlink(file_path)
+        except Exception, e:
+            print e
+
  
 if __name__ == "__main__":
     """Call main if the module is run and not if imported."""
