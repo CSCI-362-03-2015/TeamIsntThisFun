@@ -31,6 +31,7 @@ You may need to edit permissions for this folder using Sudo chmod in order to ad
 
 4.) To run the automated testing framework navigate to the /TeamIsntThisFun/testAutomation using the command:   
 >>>cd ..
+
 until the current directory is /TeamIsntThisFun/testAutomation.
 
 Then, use the command: 
