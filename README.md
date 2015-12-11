@@ -26,10 +26,16 @@ Import site
 You may need to edit permissions for this folder using Sudo chmod in order to add these files.
   
 Afterwards, navigate to the top-level directory in the cloned repository /TeamIsntThisFun. The next step is to clone the repository located at Beets Github into the /project/src folder in the cloned TeamIsntThisFun repository. This is done using the command:
+"cd TeamIsntThisFun"  
+"cd testAutomation"  
+"cd project"  
+"cd src"  
+"git clone https://github.com/sampsyo/beets.git"
+"cd"
 
-  “sudo git clone https://github.com/sampsyo/beets.git testAutomation/project/src“
 
-To run the automated testing framework navigate to the top-level directory /TeamIsntThisFun. (cd TeamIsntThisFun)
+To run the automated testing framework navigate to the top-level directory /TeamIsntThisFun: 
+"cd TeamIsntThisFun" 
 
 With these commands, “chmod +x ./scripts/runAllTests.py” and “./scripts/runAllTests.py”, the testing framework should execute automatically and output a test report in a web browser.
 
