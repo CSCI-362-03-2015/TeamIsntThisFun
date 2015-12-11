@@ -49,8 +49,9 @@ This is PATH1.
 >>>site.getsitepackages()[0] 
 
 This is PATH2.
+>>> exit()
 
-and replace PATH1 and PATH2 in the next command with the returned paths.
+Then use the these commands. Replace PATH1 and PATH2 in the next command with the returned paths.
 >>>sudo cp -r PATH1/scripts PATH2
 
 >>>sudo cp -r PATH1/drivers PATH2
@@ -66,5 +67,11 @@ PATH2 may need to be given permissions in order to be copied into.
 
 The testing framework should execute automatically and output a test report in a web browser.
 
-5.) In order to test the faults, use these commands:
-copy /TeamIsntThisFun/docs/__init__.py to /TeamIsntThisFun/project/src/beets/beets/ui and /TeamIsntThisFun/docs/hooks.py to /TeamIsntThisFun/project/src/beets/beets/autotag. These files in the docs directory have the faults in them, therefore once the files are copied into the correct directory (overwriting the other copies), the script may simply be ran as normal.
+5.) In order to test the faults, use these commands in /TeamIsntThisFun/testAutomation:
+>>> sudo cp PATH1/docs/__init__.py PATH2/beets/ui
+
+>>> sudo cp PATH1/docs/hooks.py PATH2/beets/autotag
+
+These files in the docs directory have the faults in them, therefore once the files are copied into the correct directory (overwriting the other copies), the script may simply be ran as normal.
+
+>>> ./scripts/runAllTests.py
