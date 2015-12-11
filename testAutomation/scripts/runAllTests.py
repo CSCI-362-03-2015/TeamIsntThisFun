@@ -54,7 +54,7 @@ def readFiles():
     for filename in sorted(os.listdir(rootDir)):
         infoLines = [0] * testCaseLines
         N = testCaseLines
-        f = open("testCases" + filename)
+        f = open("testCases/" + filename)
         for i in range(N):
             line = f.next().strip()
             infoLines[i] = line
