@@ -27,7 +27,7 @@ If pip is not installed, use the following commands:
 >>>git clone https://github.com/CSCI-362-03-2015/TeamIsntThisFun.git
 
 2.) Afterwards, the next step is to navigate to the top-level directory in the cloned repository /TeamIsntThisFun and then clone the repository located at Beets Github into the /project/src folder in the cloned TeamIsntThisFun repository. These steps are done by typing the commands:  
->>>cd TeamIsntThisFun/testAutomation/project/src
+>>>cd TeamIsntThisFun/TestAutomation/project/src
 
 >>>git clone https://github.com/sampsyo/beets.git
 
@@ -35,10 +35,10 @@ If pip is not installed, use the following commands:
 
 >>>sudo pip install beets
 
-and then navigate to the /TeamIsntThisFun/testAutomation directory using the command
+and then navigate to the /TeamIsntThisFun/TestAutomation directory using the command
 >>>cd ..
 
-until the current directory is /TeamIsntThisFun/testAutomation. Then use the commands:
+until the current directory is /TeamIsntThisFun/TestAutomation. Then use the commands:
 >>>pwd
 
 This is PATH1.
@@ -67,7 +67,7 @@ PATH2 may need to be given permissions in order to be copied into.
 
 The testing framework should execute automatically and output a test report in a web browser.
 
-5.) In order to test the faults, use these commands in /TeamIsntThisFun/testAutomation. The bolded init is actually '_ _ init _ _' with the spaces removed:
+5.) In order to test the faults, use these commands in /TeamIsntThisFun/TestAutomation. The bolded init is actually '_ _ init _ _' with the spaces removed:
 >>> sudo cp PATH1/docs/__init__.py PATH2/beets/ui
 
 >>> sudo cp PATH1/docs/hooks.py PATH2/beets/autotag
