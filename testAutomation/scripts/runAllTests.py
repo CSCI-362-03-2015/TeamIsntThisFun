@@ -35,7 +35,7 @@ def readFiles():
     """Reads in the lines from the test case specification file, passes them to parse, passes parsed list to driver specified
     by the test case specification file, and then calls the report function to handle building and displaying the results of
     the test in an HTML page."""
-    rootDir = '../testCases/'
+    rootDir = 'testCases'
     testCaseLines = 8
  
     ## readFiles() will build the String contents2 with test case data to be later displayed on an HTML page
@@ -54,7 +54,7 @@ def readFiles():
     for filename in sorted(os.listdir(rootDir)):
         infoLines = [0] * testCaseLines
         N = testCaseLines
-        f = open("../testCases/" + filename)
+        f = open("testCases" + filename)
         for i in range(N):
             line = f.next().strip()
             infoLines[i] = line
