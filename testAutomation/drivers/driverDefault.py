@@ -1,7 +1,18 @@
-from TeamIsntThisFun.testAutomation.project.src.beets.beets import autotag
-from TeamIsntThisFun.testAutomation.project.src.beets.beets import ui
-from beets.autotag import hooks
-import beets
+if __name__ == '__main__':
+    if __package__ is None:
+        import sys
+        from os import path
+        sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
+        from project.src.beets.beets import autotag
+        from project.src.beets.beets import ui
+    else:
+        from ..project.src.beets.beets import autotag
+        from ..project.src.beets.beets import ui
+
+#from TeamIsntThisFun.testAutomation.project.src.beets.beets import autotag
+#from TeamIsntThisFun.testAutomation.project.src.beets.beets import ui
+#from beets.autotag import hooks
+#import beets
 
 def driverDefaultFunc(info):
     """Calls the function specified in the test case specification file with the specified inputs, then returns the output."""
