@@ -34,8 +34,9 @@ You may need to edit permissions for this folder using Sudo chmod in order to ad
 
 until the current directory is /TeamIsntThisFun/testAutomation.
 
-Then, use the command: 
->>>python ./scripts/runAllTests.py
+Then, use the commands:
+>>>chmod +x ./scripts/runAllTest.py
+>>>./scripts/runAllTests.py
 The testing framework should execute automatically and output a test report in a web browser.
 
 5.) In order to test the faults, copy /TeamIsntThisFun/docs/__init__.py to /TeamIsntThisFun/project/src/beets/beets/ui and /TeamIsntThisFun/docs/hooks.py to /TeamIsntThisFun/project/src/beets/beets/autotag. These files in the docs directory have the faults in them, therefore once the files are copied into the correct directory (overwriting the other copies), the script may simply be ran as normal.
