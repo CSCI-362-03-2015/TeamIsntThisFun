@@ -22,12 +22,11 @@ Prerequisites: Python 2.7+, Git, Ubuntu/Linux
 >>>Python  
 >>>Import site  
 >>>site.getsitepackages()[0]  
->>>This is the directory the modules go in   
+This is the directory the modules go in   
 You may need to edit permissions for this folder using Sudo chmod in order to add these files.
   
 3.) Afterwards, the next step is to navigate to the top-level directory in the cloned repository /TeamIsntThisFun and then clone the repository located at Beets Github into the /project/src folder in the cloned TeamIsntThisFun repository. These steps are done by typing the commands:  
 >>>cd TeamIsntThisFun/testAutomation/project/src
-
 >>>git clone https://github.com/sampsyo/beets.git
 
 4.) To run the automated testing framework navigate to the /TeamIsntThisFun/testAutomation using the command:   
