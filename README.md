@@ -39,7 +39,7 @@ You may need to edit permissions for this folder using Sudo chmod in order to ad
 until the current directory is /TeamIsntThisFun/testAutomation.
 
 Then, use the commands:
->>>chmod +x ./scripts/runAllTest.py
+>>>chmod +x ./scripts/runAllTests.py
 
 >>>./scripts/runAllTests.py
 
