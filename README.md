@@ -63,7 +63,7 @@ PATH2 may need to be given permissions in order to be copied into.
 4.) To run the automated testing framework use the commands:   
 >>>chmod +x ./scripts/runAllTests.py
 
->>>./scripts/runAllTests.py
+>>>python ./scripts/runAllTests.py
 
 The testing framework should execute automatically and output a test report in a web browser.
 
