@@ -67,7 +67,7 @@ PATH2 may need to be given permissions in order to be copied into.
 
 The testing framework should execute automatically and output a test report in a web browser.
 
-5.) In order to test the faults, use these commands in /TeamIsntThisFun/testAutomation:
+5.) In order to test the faults, use these commands in /TeamIsntThisFun/testAutomation. The bolded init is actually '_ _ init _ _' with the spaces removed:
 >>> sudo cp PATH1/docs/__init__.py PATH2/beets/ui
 
 >>> sudo cp PATH1/docs/hooks.py PATH2/beets/autotag
