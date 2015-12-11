@@ -123,10 +123,7 @@ def readFiles():
     completeName = os.path.join(save_path, fileName)
        
     ## Build HTML page and generate it in a browser window
-    browseLocal(contents1 + contents2 + contents3)
-    Html_file = open("testReport","w")
-    Html_file.write(contents1 + contents2 + contents3)
-    Html_file.close()
+    browseLocal(contents1 + contents2 + contents3, completeName)
  
 def parseFiles(inLineArray):
     """Parse the list of lines from the test case specification file to put these lines in the correct format."""
@@ -239,9 +236,9 @@ def compare(oracle, actualOutput):
    
 def strToFile(text, filename):
     """Write a file with the given name and the given text."""
-    output = open(filename, "w")
-    output.write(text)
-    output.close()
+    with open(filename, "a+") as f:
+     f.write(text)
+     f.close()
    
 def browseLocal(webpageText, filename='tempBrowseLocal.html'):
     '''Start your webbrowser on a local file containing the text
