@@ -16,7 +16,7 @@ Adam Sugmarman - Programming / Design / Scripting
 Prerequisites: Python 2.7+
 
 1.) The first step is to clone the TeamIsntThisFun repository. This is done by typing the command:  
-   "git clone https://github.com/CSCI-362-03-2015/TeamIsntThisFun.git" enter  
+   "git clone https://github.com/CSCI-362-03-2015/TeamIsntThisFun.git"    enter  
   
 2.) You will need to add the scripts and reports modules to your Python site packages. To do this, type:   
 Python  
@@ -34,9 +34,10 @@ You may need to edit permissions for this folder using Sudo chmod in order to ad
 "cd"  enter  
 
 4.) To run the automated testing framework navigate to the top-level directory in /TeamIsntThisFun:   
-"cd TeamIsntThisFun"  
-"cd testAutomation"  
+"cd TeamIsntThisFun"  enter
+"cd testAutomation"   enter
 
-5.) Then, type: “./scripts/runAllTests.py”, the testing framework should execute automatically and output a test report in a web browser.
+Then, type: "./scripts/runAllTests.py" enter
+The testing framework should execute automatically and output a test report in a web browser.
 
-6.) In order to test the faults, copy /TeamIsntThisFun/docs/__init__.py to /TeamIsntThisFun/project/src/beets/beets/ui and /TeamIsntThisFun/docs/hooks.py to /TeamIsntThisFun/project/src/beets/beets/autotag. These files in the docs directory have the faults in them, therefore once the files are copied into the correct directory (overwriting the other copies), the script may simply be ran as normal.
+5.) In order to test the faults, copy /TeamIsntThisFun/docs/__init__.py to /TeamIsntThisFun/project/src/beets/beets/ui and /TeamIsntThisFun/docs/hooks.py to /TeamIsntThisFun/project/src/beets/beets/autotag. These files in the docs directory have the faults in them, therefore once the files are copied into the correct directory (overwriting the other copies), the script may simply be ran as normal.
