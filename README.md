@@ -31,7 +31,7 @@ You may need to edit permissions for this folder using Sudo chmod in order to ad
 >>> "cd" 
 
 4.) To run the automated testing framework navigate to the /TeamIsntThisFun/testAutomation using the command:   
->>> "cd TeamIsntThisFun/testAutomation"
+>>> "cd TeamIsntThisFun/testAutomation"  
 "cd .." // this only navigates to TeamIsntThisFun/testAutomation/project ... it should navigate to top-level directory, which is testAutomation. 
 
 Then, type: "python ./scripts/runAllTests.py"
