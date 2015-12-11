@@ -30,8 +30,8 @@ Afterwards, navigate to the top-level directory in the cloned repository /TeamIs
 "cd testAutomation"  
 "cd project"  
 "cd src"  
-"git clone https://github.com/sampsyo/beets.git"
-"cd"
+"git clone https://github.com/sampsyo/beets.git"  
+"cd"  
 
 
 To run the automated testing framework navigate to the top-level directory /TeamIsntThisFun: 
