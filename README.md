@@ -16,7 +16,7 @@ Adam Sugmarman - Programming / Design / Scripting
 Prerequisites: Python 2.7+
 
 1.) The first step is to clone the TeamIsntThisFun repository. This is done using the command:  
-   "git clone https://github.com/CSCI-362-03-2015/TeamIsntThisFun.git" enter
+   "git clone https://github.com/CSCI-362-03-2015/TeamIsntThisFun.git" enter  
   
 2.) You will need to add the scripts and reports modules to your Python site packages. To do this, open the terminal and type:   Python  
 Import site  
@@ -25,12 +25,12 @@ Import site
 You may need to edit permissions for this folder using Sudo chmod in order to add these files.
   
 3.) Afterwards, navigate to the top-level directory in the cloned repository /TeamIsntThisFun. The next step is to clone the repository located at Beets Github into the /project/src folder in the cloned TeamIsntThisFun repository. This is done using the command:
-"cd TeamIsntThisFun"  enter
-"cd testAutomation"  enter
-"cd project"  enter
-"cd src"  enter
-"git clone https://github.com/sampsyo/beets.git"  enter
-"cd"  enter
+"cd TeamIsntThisFun"  enter  
+"cd testAutomation"  enter  
+"cd project"  enter  
+"cd src"  enter  
+"git clone https://github.com/sampsyo/beets.git"  enter  
+"cd"  enter  
 
 4.) To run the automated testing framework navigate to the top-level directory /TeamIsntThisFun: 
 "cd TeamIsntThisFun" 
