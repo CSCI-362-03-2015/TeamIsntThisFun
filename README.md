@@ -27,7 +27,7 @@ You may need to edit permissions for this folder using Sudo chmod in order to ad
   
 Afterwards, navigate to the top-level directory in the cloned repository /TeamIsntThisFun. The next step is to clone the repository located at Beets Github into the /project/src folder in the cloned TeamIsntThisFun repository. This is done using the command:
 
-  “sudo git clone https://github.com/sampsyo/beets.git TeamAutomation/project/src“
+  “sudo git clone https://github.com/sampsyo/beets.git testAutomation/project/src“
 
 To run the automated testing framework navigate to the top-level directory /TeamIsntThisFun. (cd TeamIsntThisFun)
 
