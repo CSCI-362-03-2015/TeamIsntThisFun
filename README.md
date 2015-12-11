@@ -14,6 +14,8 @@ Adam Sugmarman - Programming / Design / Scripting
 ###How-To Documentation
 
 Prerequisites: Python 2.7+
+               Git
+               Ubuntu/Linux
 
 1.) The first step is to clone the TeamIsntThisFun repository. This is done by typing the command:  
    "git clone https://github.com/CSCI-362-03-2015/TeamIsntThisFun.git"
