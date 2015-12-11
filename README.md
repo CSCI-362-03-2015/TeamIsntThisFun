@@ -34,10 +34,10 @@ You may need to edit permissions for this folder using Sudo chmod in order to ad
 "cd"  enter  
 
 4.) To run the automated testing framework navigate to the top-level directory in /TeamIsntThisFun:   
-"cd TeamIsntThisFun"  enter
-"cd testAutomation"   enter
+"cd TeamIsntThisFun"  enter  
+"cd testAutomation"   enter  
 
-Then, type: "./scripts/runAllTests.py" enter
+Then, type: "./scripts/runAllTests.py" enter  
 The testing framework should execute automatically and output a test report in a web browser.
 
 5.) In order to test the faults, copy /TeamIsntThisFun/docs/__init__.py to /TeamIsntThisFun/project/src/beets/beets/ui and /TeamIsntThisFun/docs/hooks.py to /TeamIsntThisFun/project/src/beets/beets/autotag. These files in the docs directory have the faults in them, therefore once the files are copied into the correct directory (overwriting the other copies), the script may simply be ran as normal.
