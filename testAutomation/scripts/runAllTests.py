@@ -118,7 +118,7 @@ def readFiles():
     contents3 = '''</table></body></html>'''
     
     ##write to temp
-    save_path = '../temp'
+    save_path = 'temp'
     fileName = datetime.datetime.now().strftime("%I:%M%p on %B %d, %Y")
     completeName = os.path.join(save_path, fileName)
        
