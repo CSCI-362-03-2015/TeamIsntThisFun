@@ -1,5 +1,5 @@
-from TeamIsntThisFun.project.src.beets.beets import autotag
-from TeamIsntThisFun.project.src.beets.beets import ui
+from TeamIsntThisFun.testAutomation.project.src.beets.beets import autotag
+from TeamIsntThisFun.testAutomation.project.src.beets.beets import ui
 from beets.autotag import hooks
 import beets
 

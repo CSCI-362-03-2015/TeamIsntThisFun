@@ -12,7 +12,7 @@ import os
 import datetime
  
 #sys.path.insert(0, 'TeamIsntThisFun')
-from drivers import driverDefault
+from TeamIsntThisFun.testAutomation.drivers import driverDefault
  
 # Full script plan:
 #   Read file (populate array) -> Parse file -> Sent to driver, calls functions from parse
