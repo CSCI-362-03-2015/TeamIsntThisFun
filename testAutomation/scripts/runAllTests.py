@@ -272,7 +272,7 @@ def report(returnVal, contents2, outputVal):
     return contents2
     
 def clearTemp():
-    folder = '../temp/'
+    folder = 'temp'
     for item in os.listdir(folder):
         file_path = os.path.join(folder, item)
         try:
