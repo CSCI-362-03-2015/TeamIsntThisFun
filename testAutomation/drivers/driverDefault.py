@@ -3,11 +3,20 @@ if __name__ == '__main__':
         import sys
         from os import path
         sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
-        from project.src.beets.beets import autotag
-        from project.src.beets.beets import ui
+        from beets import autotag
+        from beets import ui
     else:
-        from ..project.src.beets.beets import autotag
-        from ..project.src.beets.beets import ui
+        from ..beets import autotag
+        from ..beets import ui
+if __package__ is None:
+    import sys
+    from os import path
+    sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
+    from beets import autotag
+    from beets import ui
+else:
+    from ..beets import autotag
+    from ..beets import ui
 
 #from TeamIsntThisFun.testAutomation.project.src.beets.beets import autotag
 #from TeamIsntThisFun.testAutomation.project.src.beets.beets import ui
