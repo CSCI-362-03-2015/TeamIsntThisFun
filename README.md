@@ -17,23 +17,13 @@ Prerequisites: Python 2.7+, Git, Ubuntu/Linux
 
 1.) The first step is to clone the TeamIsntThisFun repository. This is done by typing the command:  
 >>>git clone https://github.com/CSCI-362-03-2015/TeamIsntThisFun.git
-  
-2.) You will need to add the scripts and reports modules to your Python site packages. To do this, type:   
->>>Python  
 
->>>Import site  
-
->>>site.getsitepackages()[0]  
-
-This is the directory the modules go in   
-You may need to edit permissions for this folder using Sudo chmod in order to add these files.
-  
-3.) Afterwards, the next step is to navigate to the top-level directory in the cloned repository /TeamIsntThisFun and then clone the repository located at Beets Github into the /project/src folder in the cloned TeamIsntThisFun repository. These steps are done by typing the commands:  
+2.) Afterwards, the next step is to navigate to the top-level directory in the cloned repository /TeamIsntThisFun and then clone the repository located at Beets Github into the /project/src folder in the cloned TeamIsntThisFun repository. These steps are done by typing the commands:  
 >>>cd TeamIsntThisFun/testAutomation/project/src
 
 >>>git clone https://github.com/sampsyo/beets.git
 
-4.) To run the automated testing framework navigate to the /TeamIsntThisFun/testAutomation using the command:   
+3.) To run the automated testing framework navigate to the /TeamIsntThisFun/testAutomation using the command:   
 >>>cd ..
 
 until the current directory is /TeamIsntThisFun/testAutomation.
@@ -45,4 +35,4 @@ Then, use the commands:
 
 The testing framework should execute automatically and output a test report in a web browser.
 
-5.) In order to test the faults, copy /TeamIsntThisFun/docs/__init__.py to /TeamIsntThisFun/project/src/beets/beets/ui and /TeamIsntThisFun/docs/hooks.py to /TeamIsntThisFun/project/src/beets/beets/autotag. These files in the docs directory have the faults in them, therefore once the files are copied into the correct directory (overwriting the other copies), the script may simply be ran as normal.
+4.) In order to test the faults, copy /TeamIsntThisFun/docs/__init__.py to /TeamIsntThisFun/project/src/beets/beets/ui and /TeamIsntThisFun/docs/hooks.py to /TeamIsntThisFun/project/src/beets/beets/autotag. These files in the docs directory have the faults in them, therefore once the files are copied into the correct directory (overwriting the other copies), the script may simply be ran as normal.
