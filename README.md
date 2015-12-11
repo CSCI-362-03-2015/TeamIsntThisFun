@@ -33,8 +33,9 @@ You may need to edit permissions for this folder using Sudo chmod in order to ad
 "git clone https://github.com/sampsyo/beets.git"  enter  
 "cd"  enter  
 
-4.) To run the automated testing framework navigate to the top-level directory /TeamIsntThisFun: 
-"cd TeamIsntThisFun" 
+4.) To run the automated testing framework navigate to the top-level directory in /TeamIsntThisFun: 
+"cd TeamIsntThisFun"  
+"cd testAutomation"  
 
 5.) With these command, “./scripts/runAllTests.py”, the testing framework should execute automatically and output a test report in a web browser.
 
