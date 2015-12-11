@@ -33,7 +33,7 @@ You may need to edit permissions for this folder using Sudo chmod in order to ad
 "git clone https://github.com/sampsyo/beets.git"  enter  
 "cd"  enter  
 
-4.) To run the automated testing framework navigate to the top-level directory in /TeamIsntThisFun: 
+4.) To run the automated testing framework navigate to the top-level directory in /TeamIsntThisFun:   
 "cd TeamIsntThisFun"  
 "cd testAutomation"  
 
