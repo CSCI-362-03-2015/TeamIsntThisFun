@@ -25,7 +25,7 @@ Import site
 >>>This is the directory the modules go in   
 You may need to edit permissions for this folder using Sudo chmod in order to add these files.
   
-3.) Afterwards, the next step is to navigate to the top-level directory in the cloned repository /TeamIsntThisFun and then clone the repository located at Beets Github into the /project/src folder in the cloned TeamIsntThisFun repository. This is done by typing the commands:
+3.) Afterwards, the next step is to navigate to the top-level directory in the cloned repository /TeamIsntThisFun and then clone the repository located at Beets Github into the /project/src folder in the cloned TeamIsntThisFun repository. This is done by typing the commands:  
 "cd TeamIsntThisFun"  enter  
 "cd testAutomation"  enter  
 "cd project"  enter  
