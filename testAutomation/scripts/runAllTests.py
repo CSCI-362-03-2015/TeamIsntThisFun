@@ -8,11 +8,20 @@
 ## CSCI 362-03
 ## Due: December 01, 2015
  
+if __name__ == '__main__':
+    if __package__ is None:
+        import sys
+        from os import path
+        sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
+        from drivers.driverDefault import driverDefaultFunc
+    else:
+        from ..drivers.driverDefault import driverDefaultFunc
+ 
 import os
 import datetime
  
 #sys.path.insert(0, 'TeamIsntThisFun')
-from TeamIsntThisFun.testAutomation.drivers import driverDefault
+#from TeamIsntThisFun.testAutomation.drivers import driverDefault
  
 # Full script plan:
 #   Read file (populate array) -> Parse file -> Sent to driver, calls functions from parse
@@ -60,7 +69,7 @@ def readFiles():
             #except:
             #    pass
         else:
-            output = driverDefault.driverDefaultFunc(infoList)
+            output = driverDefaultFunc(infoList)
             try:
                 output = str(output)
             except:
