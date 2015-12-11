@@ -29,7 +29,7 @@ Afterwards, navigate to the top-level directory in the cloned repository /TeamIs
 
   “sudo git clone https://github.com/sampsyo/beets.git /project/src“
 
-To run the automated testing framework navigate to the top-level directory /TeamIsntThisFun.
+To run the automated testing framework navigate to the top-level directory /TeamIsntThisFun. (cd TeamIsntThisFun)
 
 With these commands, “chmod +x ./scripts/runAllTests.py” and “./scripts/runAllTests.py”, the testing framework should execute automatically and output a test report in a web browser.
 
