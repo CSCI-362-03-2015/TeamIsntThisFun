@@ -2,8 +2,9 @@
 ## Written by Team IsntThisFun:
 ##  Zachary Davis
 ##  Ben Byrd
+##  Kaitlyn Fulford
 ##  Adam Sugarman
-##  Katelyn Fulford
+
 ##
 ## CSCI 362-03
 ## Due: December 01, 2015
